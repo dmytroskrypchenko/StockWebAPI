@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ElectronicBook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScreenDiagonal" Type="float" />
+          <Property Name="ScreenTypeId" Type="int" />
+          <Property Name="BatteryCapacity" Type="int" />
+          <Property Name="WorkingTime" Type="nvarchar(max)" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterfaceForConnecting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RAM" Type="int" />
+          <Property Name="ROM" Type="int" />
+          <Property Name="CPU" Type="nvarchar(max)" />
+          <Property Name="BatteryCapacity" Type="int" />
+          <Property Name="ScreenDiagonal" Type="float" />
+          <Property Name="Camera" Type="float" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ManufacturerId" Type="int" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ScreenType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SmartWatch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InterfaceForConnectingId" Type="int" />
+          <Property Name="ScreenDiagonal" Type="float" />
+          <Property Name="Pulsometer" Type="bit" />
+          <Property Name="SimCard" Type="bit" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ElectronicBook_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ElectronicBook" Type="Self.ElectronicBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElectronicBook">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ElectronicBook_ScreenType">
+          <End Role="ScreenType" Type="Self.ScreenType" Multiplicity="0..1" />
+          <End Role="ElectronicBook" Type="Self.ElectronicBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScreenType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElectronicBook">
+              <PropertyRef Name="ScreenTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phone_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Phone" Type="Self.Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SmartWatch_InterfaceForConnecting">
+          <End Role="InterfaceForConnecting" Type="Self.InterfaceForConnecting" Multiplicity="0..1" />
+          <End Role="SmartWatch" Type="Self.SmartWatch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterfaceForConnecting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SmartWatch">
+              <PropertyRef Name="InterfaceForConnectingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SmartWatch_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="SmartWatch" Type="Self.SmartWatch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SmartWatch">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StockModelStoreContainer">
+          <EntitySet Name="ElectronicBook" EntityType="Self.ElectronicBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterfaceForConnecting" EntityType="Self.InterfaceForConnecting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phone" EntityType="Self.Phone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScreenType" EntityType="Self.ScreenType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SmartWatch" EntityType="Self.SmartWatch" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ElectronicBook_Product" Association="Self.FK_ElectronicBook_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ElectronicBook" EntitySet="ElectronicBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ElectronicBook_ScreenType" Association="Self.FK_ElectronicBook_ScreenType">
+            <End Role="ScreenType" EntitySet="ScreenType" />
+            <End Role="ElectronicBook" EntitySet="ElectronicBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phone_Product" Association="Self.FK_Phone_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Phone" EntitySet="Phone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Manufacturer" Association="Self.FK_Product_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SmartWatch_InterfaceForConnecting" Association="Self.FK_SmartWatch_InterfaceForConnecting">
+            <End Role="InterfaceForConnecting" EntitySet="InterfaceForConnecting" />
+            <End Role="SmartWatch" EntitySet="SmartWatch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SmartWatch_Product" Association="Self.FK_SmartWatch_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="SmartWatch" EntitySet="SmartWatch" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StockModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ElectronicBook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScreenDiagonal" Type="Double" />
+          <Property Name="ScreenTypeId" Type="Int32" />
+          <Property Name="BatteryCapacity" Type="Int32" />
+          <Property Name="WorkingTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ElectronicBook_Product" FromRole="ElectronicBook" ToRole="Product" />
+          <NavigationProperty Name="ScreenType" Relationship="Self.FK_ElectronicBook_ScreenType" FromRole="ElectronicBook" ToRole="ScreenType" />
+        </EntityType>
+        <EntityType Name="InterfaceForConnecting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SmartWatches" Relationship="Self.FK_SmartWatch_InterfaceForConnecting" FromRole="InterfaceForConnecting" ToRole="SmartWatch" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Manufacturer" FromRole="Manufacturer" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RAM" Type="Int32" />
+          <Property Name="ROM" Type="Int32" />
+          <Property Name="CPU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BatteryCapacity" Type="Int32" />
+          <Property Name="ScreenDiagonal" Type="Double" />
+          <Property Name="Camera" Type="Double" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Phone_Product" FromRole="Phone" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManufacturerId" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ElectronicBooks" Relationship="Self.FK_ElectronicBook_Product" FromRole="Product" ToRole="ElectronicBook" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
+          <NavigationProperty Name="Phones" Relationship="Self.FK_Phone_Product" FromRole="Product" ToRole="Phone" />
+          <NavigationProperty Name="SmartWatches" Relationship="Self.FK_SmartWatch_Product" FromRole="Product" ToRole="SmartWatch" />
+        </EntityType>
+        <EntityType Name="ScreenType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ElectronicBooks" Relationship="Self.FK_ElectronicBook_ScreenType" FromRole="ScreenType" ToRole="ElectronicBook" />
+        </EntityType>
+        <EntityType Name="SmartWatch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InterfaceForConnectingId" Type="Int32" />
+          <Property Name="ScreenDiagonal" Type="Double" />
+          <Property Name="Pulsometer" Type="Boolean" />
+          <Property Name="SimCard" Type="Boolean" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="InterfaceForConnecting" Relationship="Self.FK_SmartWatch_InterfaceForConnecting" FromRole="SmartWatch" ToRole="InterfaceForConnecting" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_SmartWatch_Product" FromRole="SmartWatch" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_ElectronicBook_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ElectronicBook" Type="Self.ElectronicBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElectronicBook">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ElectronicBook_ScreenType">
+          <End Role="ScreenType" Type="Self.ScreenType" Multiplicity="0..1" />
+          <End Role="ElectronicBook" Type="Self.ElectronicBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScreenType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElectronicBook">
+              <PropertyRef Name="ScreenTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SmartWatch_InterfaceForConnecting">
+          <End Role="InterfaceForConnecting" Type="Self.InterfaceForConnecting" Multiplicity="0..1" />
+          <End Role="SmartWatch" Type="Self.SmartWatch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterfaceForConnecting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SmartWatch">
+              <PropertyRef Name="InterfaceForConnectingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phone_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Phone" Type="Self.Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SmartWatch_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="SmartWatch" Type="Self.SmartWatch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SmartWatch">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StockContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ElectronicBooks" EntityType="Self.ElectronicBook" />
+          <EntitySet Name="InterfaceForConnectings" EntityType="Self.InterfaceForConnecting" />
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
+          <EntitySet Name="Phones" EntityType="Self.Phone" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ScreenTypes" EntityType="Self.ScreenType" />
+          <EntitySet Name="SmartWatches" EntityType="Self.SmartWatch" />
+          <AssociationSet Name="FK_ElectronicBook_Product" Association="Self.FK_ElectronicBook_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ElectronicBook" EntitySet="ElectronicBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ElectronicBook_ScreenType" Association="Self.FK_ElectronicBook_ScreenType">
+            <End Role="ScreenType" EntitySet="ScreenTypes" />
+            <End Role="ElectronicBook" EntitySet="ElectronicBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SmartWatch_InterfaceForConnecting" Association="Self.FK_SmartWatch_InterfaceForConnecting">
+            <End Role="InterfaceForConnecting" EntitySet="InterfaceForConnectings" />
+            <End Role="SmartWatch" EntitySet="SmartWatches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Manufacturer" Association="Self.FK_Product_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phone_Product" Association="Self.FK_Phone_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Phone" EntitySet="Phones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SmartWatch_Product" Association="Self.FK_SmartWatch_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="SmartWatch" EntitySet="SmartWatches" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StockModelStoreContainer" CdmEntityContainer="StockContext">
+          <EntitySetMapping Name="ElectronicBooks">
+            <EntityTypeMapping TypeName="StockModel.ElectronicBook">
+              <MappingFragment StoreEntitySet="ElectronicBook">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScreenDiagonal" ColumnName="ScreenDiagonal" />
+                <ScalarProperty Name="ScreenTypeId" ColumnName="ScreenTypeId" />
+                <ScalarProperty Name="BatteryCapacity" ColumnName="BatteryCapacity" />
+                <ScalarProperty Name="WorkingTime" ColumnName="WorkingTime" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterfaceForConnectings">
+            <EntityTypeMapping TypeName="StockModel.InterfaceForConnecting">
+              <MappingFragment StoreEntitySet="InterfaceForConnecting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="StockModel.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phones">
+            <EntityTypeMapping TypeName="StockModel.Phone">
+              <MappingFragment StoreEntitySet="Phone">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RAM" ColumnName="RAM" />
+                <ScalarProperty Name="ROM" ColumnName="ROM" />
+                <ScalarProperty Name="CPU" ColumnName="CPU" />
+                <ScalarProperty Name="BatteryCapacity" ColumnName="BatteryCapacity" />
+                <ScalarProperty Name="ScreenDiagonal" ColumnName="ScreenDiagonal" />
+                <ScalarProperty Name="Camera" ColumnName="Camera" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="StockModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScreenTypes">
+            <EntityTypeMapping TypeName="StockModel.ScreenType">
+              <MappingFragment StoreEntitySet="ScreenType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SmartWatches">
+            <EntityTypeMapping TypeName="StockModel.SmartWatch">
+              <MappingFragment StoreEntitySet="SmartWatch">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InterfaceForConnectingId" ColumnName="InterfaceForConnectingId" />
+                <ScalarProperty Name="ScreenDiagonal" ColumnName="ScreenDiagonal" />
+                <ScalarProperty Name="Pulsometer" ColumnName="Pulsometer" />
+                <ScalarProperty Name="SimCard" ColumnName="SimCard" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b447bb6b0ccb43cc9173bc743b7e3f3c" Name="Diagram1">
+        <EntityTypeShape EntityType="StockModel.ElectronicBook" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.InterfaceForConnecting" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.Manufacturer" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.Phone" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.Product" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.ScreenType" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.SmartWatch" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="StockModel.FK_ElectronicBook_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="StockModel.FK_ElectronicBook_ScreenType" ManuallyRouted="false" />
+        <AssociationConnector Association="StockModel.FK_SmartWatch_InterfaceForConnecting" ManuallyRouted="false" />
+        <AssociationConnector Association="StockModel.FK_Product_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="StockModel.FK_Phone_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="StockModel.FK_SmartWatch_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
