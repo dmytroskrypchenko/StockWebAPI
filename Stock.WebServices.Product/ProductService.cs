@@ -1,5 +1,6 @@
 ﻿namespace Stock.WebServices.Product
 {
+    using System;
     using System.Collections.Generic;
     using BL.DtoEntities;
     using BL.Services.Abstract;
@@ -7,15 +8,15 @@
 
     public class ProductService : IProductService
     {
-        private readonly IElectronicBookService _electronicBookService;
-        private readonly ISmartWatchService _smartWatchService;
-        private readonly IPhoneService _phoneService;
+        private readonly Lazy<IElectronicBookService> _electronicBookService;
+        private readonly Lazy<ISmartWatchService> _smartWatchService;
+        private readonly Lazy<IPhoneService> _phoneService;
 
         public ProductService()
         {
-            _smartWatchService = new SmartWatchService();
-            _electronicBookService = new ElectronicBookService();
-            _phoneService = new PhoneService();
+            _smartWatchService = new Lazy<ISmartWatchService>(() => new SmartWatchService());
+            _electronicBookService = new Lazy<IElectronicBookService>(() => new ElectronicBookService());
+            _phoneService = new Lazy<IPhoneService>(() => new PhoneService());
         }
 
         public string GetData(int value)
@@ -23,26 +24,26 @@
             return $"You entered: {value}";
         }
 
-        public void AddPhone(PhoneDto phone)
+        public void AddProduct(PhoneDto phone)
         {
-            _phoneService.Insert(phone);
+            _phoneService.Value.Insert(phone);
         }
 
-        public void AddElectronicBook(ElectronicBookDto electronicBook)
+        public void AddProduct(ElectronicBookDto electronicBook)
         {
-            _electronicBookService.Insert(electronicBook);
+            _electronicBookService.Value.Insert(electronicBook);
         }
 
-        public void AddSmartWatch(SmartWatchDto smartWatch)
+        public void AddProduct(SmartWatchDto smartWatch)
         {
-            _smartWatchService.Insert(smartWatch);
+            _smartWatchService.Value.Insert(smartWatch);
         }
 
         public IEnumerable<ProductDto> GetAllProducts()
         {
-            var phones = _phoneService.GetAll();
-            var electronicBooks = _electronicBookService.GetAll();
-            var smartWatches = _smartWatchService.GetAll();
+            var phones = _phoneService.Value.GetAll();
+            var electronicBooks = _electronicBookService.Value.GetAll();
+            var smartWatches = _smartWatchService.Value.GetAll();
 
             var productsDto = new List<ProductDto>();
             productsDto.AddRange(phones);

@@ -3,8 +3,13 @@
     using DtoEntities;
     using Abstract;
     using DAL;
+    using Mapper.Concrete;
 
     public class ElectronicBookService : BaseService<ElectronicBook, ElectronicBookDto>, IElectronicBookService
     {
+        public ElectronicBookService()
+        {
+            new ElectronicBookMapperConfig().Configure();
+        }
     }
 }

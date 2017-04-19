@@ -10,14 +10,14 @@
         [OperationContract]
         string GetData(int value);
 
-        [OperationContract]
-        void AddPhone(PhoneDto phone);
+        [OperationContract(Name = "AddPhone")]
+        void AddProduct(PhoneDto phone);
 
-        [OperationContract]
-        void AddElectronicBook(ElectronicBookDto electronicBook);
+        [OperationContract(Name = "AddElectronicBook")]
+        void AddProduct(ElectronicBookDto electronicBook);
 
-        [OperationContract]
-        void AddSmartWatch(SmartWatchDto smartWatch);
+        [OperationContract(Name = "AddSmartWatch")]
+        void AddProduct(SmartWatchDto smartWatch);
 
         [OperationContract]
         IEnumerable<ProductDto> GetAllProducts();

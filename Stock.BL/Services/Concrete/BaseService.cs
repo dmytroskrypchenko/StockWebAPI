@@ -4,8 +4,7 @@
     using Abstract;
     using DAL.Infrastructure.Abstract;
     using DAL.Infrastructure.Concrete;
-    using Mapper;
-
+    
     public class BaseService<TEntity, TEntityDto> : IBaseService<TEntity, TEntityDto>
         where TEntityDto : class
         where TEntity : class
@@ -15,7 +14,6 @@
         public BaseService()
         {
             _factory = new UnitOfWorkFactory();
-            AutoMapperConfig.Configure();
         }
 
         public void Delete(TEntityDto entity)
