@@ -1,4 +1,4 @@
-﻿namespace Stock.Services.TypeScreen
+﻿namespace Stock.Services.ScreenType
 {
     using System.ServiceModel;
     using System.Collections.Generic;

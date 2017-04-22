@@ -1,5 +1,5 @@
-﻿namespace Stock.Services.TypeScreen
-{
+﻿namespace Stock.Services.ScreenType
+{ 
     using System;
     using System.Collections.Generic;
     using BL.DtoEntities;

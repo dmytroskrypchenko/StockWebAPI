@@ -1,4 +1,4 @@
-﻿namespace Stock.Services.ConnectingType
+﻿namespace Stock.Services.ConnectionType
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,7 @@
     using BL.Services.Abstract;
     using BL.Services.Concrete;
 
-    public class ConnectingTypeService : IConnectionTypeService
+    public class ConnectionTypeService : IConnectionTypeService
     {
         public IEnumerable<InterfaceForConnectingDto> GetAll()
         {

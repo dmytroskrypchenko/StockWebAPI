@@ -1,4 +1,4 @@
-﻿namespace Stock.Services.ConnectingType
+﻿namespace Stock.Services.ConnectionType
 {
     using System.ServiceModel;
     using System.Collections.Generic;

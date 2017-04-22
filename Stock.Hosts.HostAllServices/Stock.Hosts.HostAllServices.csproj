@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F1B7C285-6430-4A51-9CBC-57EC60D63B54}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{502C0FA7-D48C-4126-8791-4D809E77C2FD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Stock.Services.ConnectingType</RootNamespace>
-    <AssemblyName>Stock.Services.ConnectingType</AssemblyName>
+    <RootNamespace>Stock.Hosts.HostAllServices</RootNamespace>
+    <AssemblyName>Stock.Hosts.HostAllServices</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,14 +45,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectingTypeService.cs" />
-    <Compile Include="IConnectionTypeService.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Stock.BL\Stock.BL.csproj">
-      <Project>{136e63d9-f75c-4af8-b0c0-4930822e7192}</Project>
-      <Name>Stock.BL</Name>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Stock.Services.ConnectionType\Stock.Services.ConnectionType.csproj">
+      <Project>{3b4b4424-64c1-4770-a229-5eb08ee03fce}</Project>
+      <Name>Stock.Services.ConnectionType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stock.Services.Manufacturer\Stock.Services.Manufacturer.csproj">
+      <Project>{6efa83a8-d1af-400e-ad29-a61071e72540}</Project>
+      <Name>Stock.Services.Manufacturer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stock.Services.Product\Stock.Services.Product.csproj">
+      <Project>{4c32774c-fad7-481c-b4c0-2c599ded07ea}</Project>
+      <Name>Stock.Services.Product</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stock.Services.ScreenType\Stock.Services.ScreenType.csproj">
+      <Project>{f2ab9e3f-8057-4ac2-9c35-a818cc122505}</Project>
+      <Name>Stock.Services.ScreenType</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
