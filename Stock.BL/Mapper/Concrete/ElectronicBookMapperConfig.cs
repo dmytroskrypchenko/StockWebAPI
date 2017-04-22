@@ -14,7 +14,7 @@
                 .ForMember(d => d.Name, o => o.MapFrom(s => s.Product.Name))
                 .ForMember(d => d.Price, o => o.MapFrom(s => s.Product.Price))
                 .ForMember(d => d.Description, o => o.MapFrom(s => s.Product.Description))
-                .ForMember(d => d.Manufacturer, o => o.MapFrom(s => new ManufacturereDto { Id = s.Product.Manufacturer.Id, Name = s.Product.Manufacturer.Name }))
+                .ForMember(d => d.Manufacturer, o => o.MapFrom(s => new ManufacturerDto { Id = s.Product.Manufacturer.Id, Name = s.Product.Manufacturer.Name }))
                 .ForMember(d => d.ScreenType, o => o.MapFrom(s => new ScreenTypeDto { Id = s.ScreenType.Id, Name = s.ScreenType.Name }));
 
             AutoMapper.Mapper.CreateMap<ElectronicBookDto, ElectronicBook>()

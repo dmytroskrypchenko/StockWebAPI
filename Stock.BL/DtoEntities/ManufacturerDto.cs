@@ -3,7 +3,7 @@
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class ManufacturereDto
+    public class ManufacturerDto
     {
         [DataMember]
         public int Id { get; set; }

@@ -17,6 +17,6 @@
         [DataMember]
         public string Description { get; set; }
         [DataMember]
-        public ManufacturereDto Manufacturer { get; set; }
+        public ManufacturerDto Manufacturer { get; set; }
     }
 }

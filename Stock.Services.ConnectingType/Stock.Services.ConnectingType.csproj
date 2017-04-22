@@ -4,18 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{83C122FD-9BA7-42E9-BDB6-59BBA5523A62}</ProjectGuid>
+    <ProjectGuid>{F1B7C285-6430-4A51-9CBC-57EC60D63B54}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Stock.WebServices.Product</RootNamespace>
-    <AssemblyName>Stock.WebServices.Product</AssemblyName>
-    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <RootNamespace>Stock.Services.ConnectingType</RootNamespace>
+    <AssemblyName>Stock.Services.ConnectingType</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
-    <XsdCodeGenEnabled>True</XsdCodeGenEnabled>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,49 +30,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IProductService.cs" />
+    <Compile Include="ConnectingTypeService.cs" />
+    <Compile Include="IConnectionTypeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProductService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Stock.BL\Stock.BL.csproj">
       <Project>{136e63d9-f75c-4af8-b0c0-4930822e7192}</Project>
       <Name>Stock.BL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Stock.DAL\Stock.DAL.csproj">
-      <Project>{cbe6be4f-4bf6-453b-9b64-127d2b1dabca}</Project>
-      <Name>Stock.DAL</Name>
-    </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio</VSToolsPath>
-    <WcfServiceModelTargetPath>$(VSToolsPath)\WCF</WcfServiceModelTargetPath>
-  </PropertyGroup>
-  <Import Project="$(WcfServiceModelTargetPath)\Microsoft.VisualStudio.ServiceModel.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
-        <WcfProjectProperties>
-          <AutoStart>True</AutoStart>
-        </WcfProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

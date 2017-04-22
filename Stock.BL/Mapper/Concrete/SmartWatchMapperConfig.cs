@@ -13,7 +13,7 @@
                .ForMember(d => d.Name, o => o.MapFrom(s => s.Product.Name))
                .ForMember(d => d.Price, o => o.MapFrom(s => s.Product.Price))
                .ForMember(d => d.Description, o => o.MapFrom(s => s.Product.Description))
-               .ForMember(d => d.Manufacturer, o => o.MapFrom(s => new ManufacturereDto { Id = s.Product.Manufacturer.Id, Name = s.Product.Manufacturer.Name }))
+               .ForMember(d => d.Manufacturer, o => o.MapFrom(s => new ManufacturerDto { Id = s.Product.Manufacturer.Id, Name = s.Product.Manufacturer.Name }))
                .ForMember(d => d.InterfaceForConnecting, o => o.MapFrom(s => new InterfaceForConnectingDto { Id = s.InterfaceForConnecting.Id, Name = s.InterfaceForConnecting.Name }));
 
             AutoMapper.Mapper.CreateMap<SmartWatchDto, SmartWatch>()

@@ -1,4 +1,4 @@
-﻿namespace Stock.WebServices.Product
+﻿namespace Stock.Services.Product
 {
     using System.ServiceModel;
     using System.Collections.Generic;

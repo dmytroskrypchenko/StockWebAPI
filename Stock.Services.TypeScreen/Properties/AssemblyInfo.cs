@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Stock.WebServices.Product")]
+[assembly: AssemblyTitle("Stock.Services.TypeScreen")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EPAM Systems")]
-[assembly: AssemblyProduct("Stock.WebServices.Product")]
+[assembly: AssemblyProduct("Stock.Services.TypeScreen")]
 [assembly: AssemblyCopyright("Copyright © EPAM Systems 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("83c122fd-9ba7-42e9-bdb6-59bba5523a62")]
+[assembly: Guid("11354bf2-d87c-43a8-9364-373f798c2f01")]
 
 // Version information for an assembly consists of the following four values:
 //
