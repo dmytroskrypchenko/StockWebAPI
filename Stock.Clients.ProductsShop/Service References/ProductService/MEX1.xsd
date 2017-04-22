@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="PhoneDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProductDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatteryCapacity" type="xs:int" />
+          <xs:element minOccurs="0" name="CPU" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Camera" type="xs:double" />
+          <xs:element minOccurs="0" name="PhoneId" type="xs:int" />
+          <xs:element minOccurs="0" name="RAM" type="xs:int" />
+          <xs:element minOccurs="0" name="ROM" type="xs:int" />
+          <xs:element minOccurs="0" name="ScreenDiagonal" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhoneDto" nillable="true" type="tns:PhoneDto" />
+  <xs:complexType name="ProductDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="tns:ManufacturerDto" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductDto" nillable="true" type="tns:ProductDto" />
+  <xs:complexType name="ManufacturerDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManufacturerDto" nillable="true" type="tns:ManufacturerDto" />
+  <xs:complexType name="SmartWatchDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProductDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InterfaceForConnecting" nillable="true" type="tns:InterfaceForConnectingDto" />
+          <xs:element minOccurs="0" name="Pulsometer" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ScreenDiagonal" type="xs:double" />
+          <xs:element minOccurs="0" name="SimCard" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SmartWatchId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SmartWatchDto" nillable="true" type="tns:SmartWatchDto" />
+  <xs:complexType name="InterfaceForConnectingDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InterfaceForConnectingDto" nillable="true" type="tns:InterfaceForConnectingDto" />
+  <xs:complexType name="ElectronicBookDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProductDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatteryCapacity" type="xs:int" />
+          <xs:element minOccurs="0" name="ElectronicBookId" type="xs:int" />
+          <xs:element minOccurs="0" name="ScreenDiagonal" type="xs:double" />
+          <xs:element minOccurs="0" name="ScreenType" nillable="true" type="tns:ScreenTypeDto" />
+          <xs:element minOccurs="0" name="WorkingTime" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ElectronicBookDto" nillable="true" type="tns:ElectronicBookDto" />
+  <xs:complexType name="ScreenTypeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScreenTypeDto" nillable="true" type="tns:ScreenTypeDto" />
+  <xs:complexType name="ArrayOfProductDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDto" nillable="true" type="tns:ProductDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductDto" nillable="true" type="tns:ArrayOfProductDto" />
+</xs:schema>

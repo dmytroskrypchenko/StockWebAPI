@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="54535b45-542d-4d3a-b2e3-93c3aeddc7fc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9876/Stock/ProductService/MEX" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MEX.xsd" MetadataType="Schema" ID="5052adea-8b82-45a5-aa92-8073706bcacb" SourceId="1" SourceUrl="http://localhost:9876/Stock/ProductService/MEX?xsd=xsd1" />
+    <MetadataFile FileName="ProductService.wsdl" MetadataType="Wsdl" ID="8543c38d-2466-4a83-a7e4-8ca4849511dc" SourceId="1" SourceUrl="http://localhost:9876/Stock/ProductService/MEX" />
+    <MetadataFile FileName="MEX1.xsd" MetadataType="Schema" ID="74310820-8a50-4e41-b6b7-bf3a44bd31a9" SourceId="1" SourceUrl="http://localhost:9876/Stock/ProductService/MEX?xsd=xsd2" />
+    <MetadataFile FileName="MEX2.xsd" MetadataType="Schema" ID="511bcfc1-2be1-4ddc-96e2-0e98bdc5f2e8" SourceId="1" SourceUrl="http://localhost:9876/Stock/ProductService/MEX?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
