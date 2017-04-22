@@ -9,7 +9,7 @@
     {
         public SmartWatchService()
         {
-            new SmartWatchMapperConfig().Configure();
+            new SmartWatchMapper().Configure();
         }
     }
 }

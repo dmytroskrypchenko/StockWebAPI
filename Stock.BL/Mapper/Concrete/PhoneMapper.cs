@@ -4,7 +4,7 @@
     using Abstract;
     using DAL;
 
-    public class PhoneMapperConfig : IAutoMapperConfig
+    public class PhoneMapper : IMapper
     {
         public void Configure()
         {

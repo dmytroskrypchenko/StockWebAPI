@@ -9,7 +9,7 @@
     {
         public PhoneService()
         {
-            new PhoneMapperConfig().Configure();
+            new PhoneMapper().Configure();
         }
     }
 }

@@ -9,7 +9,7 @@
     {
         public ElectronicBookService()
         {
-            new ElectronicBookMapperConfig().Configure();
+            new ElectronicBookMapper().Configure();
         }
     }
 }

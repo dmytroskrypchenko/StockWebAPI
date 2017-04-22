@@ -1,6 +1,6 @@
 ﻿namespace Stock.BL.Mapper.Abstract
 {
-    public interface IAutoMapperConfig
+    public interface IMapper
     {
         void Configure();
     }

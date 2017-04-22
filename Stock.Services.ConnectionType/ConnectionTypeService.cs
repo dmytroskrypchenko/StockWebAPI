@@ -1,16 +1,20 @@
 ﻿namespace Stock.Services.ConnectionType
 {
-    using System;
     using System.Collections.Generic;
     using BL.DtoEntities;
-    using BL.Services.Abstract;
-    using BL.Services.Concrete;
-
+    
     public class ConnectionTypeService : IConnectionTypeService
     {
+        private readonly BL.Services.Abstract.IConnectionTypeService _connectionTypeService;
+
+        public ConnectionTypeService()
+        {
+            _connectionTypeService = new BL.Services.Concrete.ConnectionTypeService();
+        }
+
         public IEnumerable<InterfaceForConnectingDto> GetAll()
         {
-            throw new NotImplementedException();
+            return _connectionTypeService.GetAll();
         }
     }
 }
