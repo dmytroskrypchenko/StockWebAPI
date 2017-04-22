@@ -48,6 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddElectronicBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddElectronicBook.Designer.cs">
+      <DependentUpon>AddElectronicBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSmartWatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSmartWatch.Designer.cs">
+      <DependentUpon>AddSmartWatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPhone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPhone.Designer.cs">
+      <DependentUpon>AddPhone.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +94,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddElectronicBook.resx">
+      <DependentUpon>AddElectronicBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSmartWatch.resx">
+      <DependentUpon>AddSmartWatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPhone.resx">
+      <DependentUpon>AddPhone.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
