@@ -75,6 +75,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ScreenTypeDto" nillable="true" type="tns:ScreenTypeDto" />
+  <xs:complexType name="FileDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileByteStream" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FileLength" type="xs:long" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDto" nillable="true" type="tns:FileDto" />
   <xs:complexType name="ArrayOfProductDto">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDto" nillable="true" type="tns:ProductDto" />

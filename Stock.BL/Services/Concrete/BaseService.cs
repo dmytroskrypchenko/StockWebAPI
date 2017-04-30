@@ -4,7 +4,7 @@
     using Abstract;
     using DAL.Infrastructure.Abstract;
     using DAL.Infrastructure.Concrete;
-    
+
     public class BaseService<TEntity, TEntityDto> : IBaseService<TEntity, TEntityDto>
         where TEntityDto : class
         where TEntity : class
@@ -67,6 +67,19 @@
             {
                 var entityToInsert = AutoMapper.Mapper.Map<TEntity>(entity);
                 uow.Repository<TEntity>().Insert(entityToInsert);
+                uow.Save();
+            }
+        }
+
+        public void Insert(IEnumerable<TEntityDto> entities)
+        {
+            using (var uow = _factory.Create())
+            {
+                foreach (var entity in entities)
+                {
+                    var entityToInsert = AutoMapper.Mapper.Map<TEntity>(entity);
+                    uow.Repository<TEntity>().Insert(entityToInsert);
+                }
                 uow.Save();
             }
         }

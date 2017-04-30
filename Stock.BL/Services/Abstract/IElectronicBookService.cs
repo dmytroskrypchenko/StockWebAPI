@@ -5,5 +5,6 @@
 
     public interface IElectronicBookService : IBaseService<ElectronicBook, ElectronicBookDto>
     {
+        void Import(FileDto file);
     }
 }

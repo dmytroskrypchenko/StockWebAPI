@@ -51,6 +51,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ImportProducts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities" minOccurs="0" name="file" nillable="true" type="q4:FileDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportProductsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllProducts">
     <xs:complexType>
       <xs:sequence />
@@ -59,7 +71,7 @@
   <xs:element name="GetAllProductsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities" minOccurs="0" name="GetAllProductsResult" nillable="true" type="q4:ArrayOfProductDto" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities" minOccurs="0" name="GetAllProductsResult" nillable="true" type="q5:ArrayOfProductDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

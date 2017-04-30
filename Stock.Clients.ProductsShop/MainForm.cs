@@ -1,6 +1,10 @@
 ﻿namespace Stock.Clients.ProductsShop
 {
     using System.Windows.Forms;
+    using System.IO;
+    using System;
+    using System.Collections.Generic;
+    using ProductService;
 
     public partial class MainForm : Form
     {
@@ -25,6 +29,26 @@
         {
             var addElectronicBookForm = new AddElectronicBook();
             addElectronicBookForm.ShowDialog();
+        }
+
+        private void importProductsFromFileToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            byte[] array = File.ReadAllBytes(openFileDialog.FileName);
+
+            FileDto fileDto = new FileDto
+            {
+                FileName = openFileDialog.SafeFileName,
+                FileLength = array.Length,
+                FileByteStream = array
+            };
+
+
         }
     }
 }

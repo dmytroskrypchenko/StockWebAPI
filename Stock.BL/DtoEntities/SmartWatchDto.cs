@@ -10,10 +10,10 @@
         [DataMember]
         public InterfaceForConnectingDto InterfaceForConnecting { get; set; }
         [DataMember]
-        public double ScreenDiagonal { get; set; }
+        public double? ScreenDiagonal { get; set; }
         [DataMember]
-        public bool Pulsometer { get; set; }
+        public bool? Pulsometer { get; set; }
         [DataMember]
-        public bool SimCard { get; set; }
+        public bool? SimCard { get; set; }
     }
 }

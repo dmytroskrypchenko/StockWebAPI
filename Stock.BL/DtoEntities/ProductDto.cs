@@ -13,7 +13,7 @@
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
         [DataMember]
         public string Description { get; set; }
         [DataMember]

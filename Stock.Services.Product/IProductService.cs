@@ -20,6 +20,9 @@
         void AddProduct(SmartWatchDto smartWatch);
 
         [OperationContract]
+        void ImportProducts(FileDto file);
+
+        [OperationContract]
         IEnumerable<ProductDto> GetAllProducts();
     }
 }

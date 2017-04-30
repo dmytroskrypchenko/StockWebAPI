@@ -8,16 +8,16 @@
         [DataMember]
         public int PhoneId { get; set; }
         [DataMember]
-        public int RAM { get; set; }
+        public int? RAM { get; set; }
         [DataMember]
-        public int ROM { get; set; }
+        public int? ROM { get; set; }
         [DataMember]
         public string CPU { get; set; }
         [DataMember]
-        public int BatteryCapacity { get; set; }
+        public int? BatteryCapacity { get; set; }
         [DataMember]
-        public double ScreenDiagonal { get; set; }
+        public double? ScreenDiagonal { get; set; }
         [DataMember]
-        public double Camera { get; set; }
+        public double? Camera { get; set; }
     }
 }

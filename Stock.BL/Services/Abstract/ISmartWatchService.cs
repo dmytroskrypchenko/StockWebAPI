@@ -5,5 +5,6 @@
 
     public interface ISmartWatchService : IBaseService<SmartWatch, SmartWatchDto>
     {
+        void Import(FileDto file);
     }
 }

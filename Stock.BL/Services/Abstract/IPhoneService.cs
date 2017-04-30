@@ -5,5 +5,6 @@
 
     public interface IPhoneService : IBaseService<Phone, PhoneDto>
     {
+        void Import(FileDto file);
     }
 }

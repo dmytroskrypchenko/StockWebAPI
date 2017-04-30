@@ -8,11 +8,11 @@
         [DataMember]
         public int ElectronicBookId { get; set; }
         [DataMember]
-        public double ScreenDiagonal { get; set; }
+        public double? ScreenDiagonal { get; set; }
         [DataMember]
         public ScreenTypeDto ScreenType { get; set; }
         [DataMember]
-        public int BatteryCapacity { get; set; }
+        public int? BatteryCapacity { get; set; }
         [DataMember]
         public string WorkingTime { get; set; }
     }

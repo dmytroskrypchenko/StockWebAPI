@@ -601,6 +601,83 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FileDto", Namespace="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities")]
+    [System.SerializableAttribute()]
+    public partial class FileDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] FileByteStreamField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long FileLengthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FileNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] FileByteStream {
+            get {
+                return this.FileByteStreamField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileByteStreamField, value) != true)) {
+                    this.FileByteStreamField = value;
+                    this.RaisePropertyChanged("FileByteStream");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long FileLength {
+            get {
+                return this.FileLengthField;
+            }
+            set {
+                if ((this.FileLengthField.Equals(value) != true)) {
+                    this.FileLengthField = value;
+                    this.RaisePropertyChanged("FileLength");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductService.IProductService")]
     public interface IProductService {
@@ -628,6 +705,12 @@ namespace Stock.Clients.ProductsShop.ProductService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/AddSmartWatch", ReplyAction="http://tempuri.org/IProductService/AddSmartWatchResponse")]
         System.Threading.Tasks.Task AddSmartWatchAsync(Stock.Clients.ProductsShop.ProductService.SmartWatchDto smartWatch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/ImportProducts", ReplyAction="http://tempuri.org/IProductService/ImportProductsResponse")]
+        void ImportProducts(Stock.Clients.ProductsShop.ProductService.FileDto file);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/ImportProducts", ReplyAction="http://tempuri.org/IProductService/ImportProductsResponse")]
+        System.Threading.Tasks.Task ImportProductsAsync(Stock.Clients.ProductsShop.ProductService.FileDto file);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetAllProducts", ReplyAction="http://tempuri.org/IProductService/GetAllProductsResponse")]
         System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ProductDto> GetAllProducts();
@@ -693,6 +776,14 @@ namespace Stock.Clients.ProductsShop.ProductService {
         
         public System.Threading.Tasks.Task AddSmartWatchAsync(Stock.Clients.ProductsShop.ProductService.SmartWatchDto smartWatch) {
             return base.Channel.AddSmartWatchAsync(smartWatch);
+        }
+        
+        public void ImportProducts(Stock.Clients.ProductsShop.ProductService.FileDto file) {
+            base.Channel.ImportProducts(file);
+        }
+        
+        public System.Threading.Tasks.Task ImportProductsAsync(Stock.Clients.ProductsShop.ProductService.FileDto file) {
+            return base.Channel.ImportProductsAsync(file);
         }
         
         public System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ProductDto> GetAllProducts() {

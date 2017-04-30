@@ -34,6 +34,10 @@
       <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -46,13 +50,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnParsers\BaseParser.cs" />
+    <Compile Include="ColumnParsers\ConnectionTypeParser.cs" />
+    <Compile Include="ColumnParsers\DoubleParser.cs" />
+    <Compile Include="ColumnParsers\BoolParser.cs" />
+    <Compile Include="ColumnParsers\ManufacturerParser.cs" />
+    <Compile Include="ColumnParsers\IntParser.cs" />
+    <Compile Include="ColumnParsers\PriceParser.cs" />
+    <Compile Include="ColumnParsers\ScreenTypeParser.cs" />
+    <Compile Include="ColumnParsers\StringParser.cs" />
     <Compile Include="DtoEntities\ElectronicBookDto.cs" />
+    <Compile Include="DtoEntities\FileDto.cs" />
     <Compile Include="DtoEntities\InterfaceForConnectingDto.cs" />
     <Compile Include="DtoEntities\ManufacturerDto.cs" />
     <Compile Include="DtoEntities\PhoneDto.cs" />
     <Compile Include="DtoEntities\ProductDto.cs" />
     <Compile Include="DtoEntities\ScreenTypeDto.cs" />
     <Compile Include="DtoEntities\SmartWatchDto.cs" />
+    <Compile Include="Enums\ElectronicBookColumnNames.cs" />
+    <Compile Include="Enums\PhoneColumnNames.cs" />
+    <Compile Include="Enums\SmartWatchColumnNames.cs" />
+    <Compile Include="ImportPipes\Abstract\BasePipe.cs" />
+    <Compile Include="ImportPipes\Concrete\ElectronicBookDataParser.cs" />
+    <Compile Include="ImportPipes\Concrete\ElectronicBookExcelDataCreator.cs" />
+    <Compile Include="ImportPipes\Concrete\ExcelDataCreator.cs" />
+    <Compile Include="ImportPipes\Concrete\PhoneDataParser.cs" />
+    <Compile Include="ImportPipes\Concrete\PhoneExcelDataCreator.cs" />
+    <Compile Include="ImportPipes\Concrete\SmartWatchDataParser.cs" />
+    <Compile Include="ImportPipes\Concrete\SmartWatchExcelDataCreator.cs" />
     <Compile Include="Mapper\Abstract\IMapper.cs" />
     <Compile Include="Mapper\Concrete\ConnectionTypeMapper.cs" />
     <Compile Include="Mapper\Concrete\ScreenTypeMapper.cs" />
@@ -60,6 +85,8 @@
     <Compile Include="Mapper\Concrete\ElectronicBookMapper.cs" />
     <Compile Include="Mapper\Concrete\PhoneMapper.cs" />
     <Compile Include="Mapper\Concrete\SmartWatchMapper.cs" />
+    <Compile Include="Models\ColumnMapping.cs" />
+    <Compile Include="Models\ExcelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Abstract\IBaseService.cs" />
     <Compile Include="Services\Abstract\IConnectionTypeService.cs" />

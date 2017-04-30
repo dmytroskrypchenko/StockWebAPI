@@ -39,6 +39,13 @@
             _smartWatchService.Value.Insert(smartWatch);
         }
 
+        public void ImportProducts(FileDto file)
+        {
+            _phoneService.Value.Import(file);
+            _electronicBookService.Value.Import(file);
+            _smartWatchService.Value.Import(file);
+        }
+
         public IEnumerable<ProductDto> GetAllProducts()
         {
             var phones = _phoneService.Value.GetAll();
