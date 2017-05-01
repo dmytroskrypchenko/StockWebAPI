@@ -31,6 +31,12 @@
   <wsdl:message name="IProductService_AddSmartWatch_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddSmartWatchResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductService_AddProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProducts" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_AddProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductsResponse" />
+  </wsdl:message>
   <wsdl:message name="IProductService_ImportProducts_InputMessage">
     <wsdl:part name="parameters" element="tns:ImportProducts" />
   </wsdl:message>
@@ -59,6 +65,10 @@
     <wsdl:operation name="AddSmartWatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/AddSmartWatch" message="tns:IProductService_AddSmartWatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/AddSmartWatchResponse" message="tns:IProductService_AddSmartWatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/AddProducts" message="tns:IProductService_AddProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/AddProductsResponse" message="tns:IProductService_AddProducts_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ImportProducts">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/ImportProducts" message="tns:IProductService_ImportProducts_InputMessage" />
@@ -100,6 +110,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddSmartWatch">
       <soap:operation soapAction="http://tempuri.org/IProductService/AddSmartWatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProducts">
+      <soap:operation soapAction="http://tempuri.org/IProductService/AddProducts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

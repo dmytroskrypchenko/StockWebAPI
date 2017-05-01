@@ -1,6 +1,7 @@
 ﻿namespace Stock.Services.Product
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using BL.DtoEntities;
     using BL.Services.Abstract;
@@ -38,6 +39,13 @@
         public void AddProduct(SmartWatchDto smartWatch)
         {
             _smartWatchService.Value.Insert(smartWatch);
+        }
+
+        public void AddProducts(List<ProductDto> products)
+        {
+            _phoneService.Value.Insert(products.OfType<PhoneDto>());
+            _electronicBookService.Value.Insert(products.OfType<ElectronicBookDto>());
+            _smartWatchService.Value.Insert(products.OfType<SmartWatchDto>());
         }
 
         public void ImportProducts(FileDto file)

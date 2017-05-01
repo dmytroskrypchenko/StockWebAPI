@@ -706,6 +706,12 @@ namespace Stock.Clients.ProductsShop.ProductService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/AddSmartWatch", ReplyAction="http://tempuri.org/IProductService/AddSmartWatchResponse")]
         System.Threading.Tasks.Task AddSmartWatchAsync(Stock.Clients.ProductsShop.ProductService.SmartWatchDto smartWatch);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/AddProducts", ReplyAction="http://tempuri.org/IProductService/AddProductsResponse")]
+        void AddProducts(System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ProductDto> products);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/AddProducts", ReplyAction="http://tempuri.org/IProductService/AddProductsResponse")]
+        System.Threading.Tasks.Task AddProductsAsync(System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ProductDto> products);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/ImportProducts", ReplyAction="http://tempuri.org/IProductService/ImportProductsResponse")]
         void ImportProducts(Stock.Clients.ProductsShop.ProductService.FileDto file);
         
@@ -776,6 +782,14 @@ namespace Stock.Clients.ProductsShop.ProductService {
         
         public System.Threading.Tasks.Task AddSmartWatchAsync(Stock.Clients.ProductsShop.ProductService.SmartWatchDto smartWatch) {
             return base.Channel.AddSmartWatchAsync(smartWatch);
+        }
+        
+        public void AddProducts(System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ProductDto> products) {
+            base.Channel.AddProducts(products);
+        }
+        
+        public System.Threading.Tasks.Task AddProductsAsync(System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ProductDto> products) {
+            return base.Channel.AddProductsAsync(products);
         }
         
         public void ImportProducts(Stock.Clients.ProductsShop.ProductService.FileDto file) {

@@ -54,6 +54,12 @@
     <Compile Include="AddElectronicBook.Designer.cs">
       <DependentUpon>AddElectronicBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProducts.Designer.cs">
+      <DependentUpon>AddProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSmartWatch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="AddElectronicBook.resx">
       <DependentUpon>AddElectronicBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProducts.resx">
+      <DependentUpon>AddProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddSmartWatch.resx">
       <DependentUpon>AddSmartWatch.cs</DependentUpon>

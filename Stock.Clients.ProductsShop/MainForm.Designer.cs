@@ -34,6 +34,7 @@
             this.addSmartWatchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addElectronicBookToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.importProductsFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.addPhoneToolStripMenuItem1,
             this.addSmartWatchToolStripMenuItem1,
             this.addElectronicBookToolStripMenuItem1,
-            this.importProductsFromFileToolStripMenuItem});
+            this.importProductsFromFileToolStripMenuItem,
+            this.addProductsToolStripMenuItem});
             this.addPrToolStripMenuItem.Name = "addPrToolStripMenuItem";
             this.addPrToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.addPrToolStripMenuItem.Text = "Add Products";
@@ -86,6 +88,13 @@
             this.importProductsFromFileToolStripMenuItem.Text = "Import Products From File";
             this.importProductsFromFileToolStripMenuItem.Click += new System.EventHandler(this.importProductsFromFileToolStripMenuItem_Click);
             // 
+            // addProductsToolStripMenuItem
+            // 
+            this.addProductsToolStripMenuItem.Name = "addProductsToolStripMenuItem";
+            this.addProductsToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.addProductsToolStripMenuItem.Text = "Add Products";
+            this.addProductsToolStripMenuItem.Click += new System.EventHandler(this.addProductsToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,7 +105,6 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "ProductsShop";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -112,6 +120,7 @@
         private System.Windows.Forms.ToolStripMenuItem addSmartWatchToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addElectronicBookToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem importProductsFromFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addProductsToolStripMenuItem;
     }
 }
 

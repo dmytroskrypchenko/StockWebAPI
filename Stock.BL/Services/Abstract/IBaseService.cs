@@ -10,6 +10,8 @@
 
         void Insert(TEntityDto entity);
 
+        void Insert(IEnumerable<TEntityDto> entities);
+
         void Delete(TEntityDto entity);
 
         void DeleteById(int id);

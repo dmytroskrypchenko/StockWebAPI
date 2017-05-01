@@ -19,6 +19,8 @@
         [OperationContract(Name = "AddSmartWatch")]
         void AddProduct(SmartWatchDto smartWatch);
 
+        void AddProducts(List<ProductDto> products);
+
         [OperationContract]
         void ImportProducts(FileDto file);
 

@@ -63,9 +63,10 @@
             _productServiceClient.ImportProducts(fileDto);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void addProductsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var addProductsForm = new AddProducts(_productServiceClient, _manufacturerServiceClient, _connectionTypeServiceClient, _screenTypeServiceClient);
+            addProductsForm.ShowDialog();
         }
     }
 }
