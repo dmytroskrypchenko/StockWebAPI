@@ -4,50 +4,67 @@
     using System.Collections.Generic;
     using System.Windows.Forms;
     using ProductService;
+    using ManufacturerService;
+    using ScreenTypeService;
 
     public partial class AddElectronicBook : Form
     {
-        public AddElectronicBook()
+        private ProductServiceClient _productServiceClient;
+        private ManufacturerServiceClient _manufacturerServiceClient;
+        private ScreenTypeServiceClient _screenTypeServiceClient;
+
+        public AddElectronicBook(ProductServiceClient productServiceClient, ManufacturerServiceClient manufacturerServiceClient, ScreenTypeServiceClient screenTypeServiceClient)
         {
             InitializeComponent();
+            _productServiceClient = productServiceClient;
+            _manufacturerServiceClient = manufacturerServiceClient;
+            _screenTypeServiceClient = screenTypeServiceClient;
         }
 
         private void AddElectronicBook_Load(object sender, EventArgs e)
         {
-            //TODO: get using service
-            List<ManufacturerDto> manufacturers = new List<ManufacturerDto>();
-
+            var manufacturers = _manufacturerServiceClient.GetAll();
             comboBoxManufacturer.DataSource = new BindingSource(manufacturers, null);
             comboBoxManufacturer.DisplayMember = "Name";
             comboBoxManufacturer.ValueMember = "Id";
 
-            List<ScreenTypeDto> screenTypes=new List<ScreenTypeDto>();
-
-            comboBoxScreenType.DataSource=new BindingSource(screenTypes, null);
+            var screenTypes = _screenTypeServiceClient.GetAll();
+            comboBoxScreenType.DataSource = new BindingSource(screenTypes, null);
             comboBoxScreenType.DisplayMember = "Name";
             comboBoxScreenType.ValueMember = "Id";
         }
 
         private void buttonAddElectronicBook_Click(object sender, EventArgs e)
         {
-            if (textBoxName.Text == "" || textBoxPrice.Text == "")
+            if (textBoxName.Text == string.Empty || textBoxPrice.Text == string.Empty)
             {
-                MessageBox.Show("Please, fill the required fields");
+                errorProviderName.SetError(textBoxName, "Please enter a value to Name field");
+                errorProviderPrice.SetError(textBoxPrice, "Please enter a value to Price field");
             }
             else
             {
+                errorProviderName.Clear();
+                errorProviderPrice.Clear();
+
                 ElectronicBookDto electronicBook = new ElectronicBookDto();
                 electronicBook.Name = textBoxName.Text;
-                electronicBook.Price = decimal.Parse(textBoxPrice.Text);
+                electronicBook.Price = Parsers.DecimalParse(textBoxPrice.Text);
                 electronicBook.Description = textBoxDescription.Text;
-                electronicBook.Manufacturer = (ManufacturerDto)comboBoxManufacturer.SelectedItem;
-                electronicBook.ScreenDiagonal = double.Parse(textBoxScreenDiagonal.Text);
-                electronicBook.ScreenType = (ScreenTypeDto)comboBoxScreenType.SelectedItem;
-                electronicBook.BatteryCapacity = int.Parse(textBoxBatteryCapacity.Text);
+                electronicBook.Manufacturer = new ProductService.ManufacturerDto
+                {
+                    Id = ((ManufacturerService.ManufacturerDto)comboBoxManufacturer.SelectedItem).Id
+                };
+                electronicBook.ScreenDiagonal = Parsers.DoubleParse(textBoxScreenDiagonal.Text);
+                electronicBook.ScreenType = new ProductService.ScreenTypeDto
+                {
+                    Id = ((ScreenTypeService.ScreenTypeDto)comboBoxScreenType.SelectedItem).Id
+                };
+                electronicBook.BatteryCapacity = Parsers.IntParse(textBoxBatteryCapacity.Text);
                 electronicBook.WorkingTime = textBoxWorkingTime.Text;
 
+                _productServiceClient.AddElectronicBook(electronicBook);
                 MessageBox.Show("Book successfully added");
-                this.Close();
+                Close();
             }
         }
     }

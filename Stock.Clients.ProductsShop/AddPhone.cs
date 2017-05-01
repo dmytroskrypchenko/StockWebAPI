@@ -9,6 +9,7 @@
     {
         private ProductServiceClient _productServiceClient;
         private ManufacturerServiceClient _manufacturerServiceClient;
+
         public AddPhone(ProductServiceClient productServiceClient, ManufacturerServiceClient manufacturerServiceClient)
         {
             InitializeComponent();

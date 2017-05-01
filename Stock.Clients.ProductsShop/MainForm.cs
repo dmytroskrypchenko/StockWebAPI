@@ -39,7 +39,7 @@
 
         private void addElectronicBookToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
-            var addElectronicBookForm = new AddElectronicBook();
+            var addElectronicBookForm = new AddElectronicBook(_productServiceClient, _manufacturerServiceClient, _screenTypeServiceClient);
             addElectronicBookForm.ShowDialog();
         }
 

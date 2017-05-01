@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelScreenType = new System.Windows.Forms.Label();
             this.labelScreenDiagonal = new System.Windows.Forms.Label();
             this.labelManufacturer = new System.Windows.Forms.Label();
@@ -45,6 +46,10 @@
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.buttonAddElectronicBook = new System.Windows.Forms.Button();
             this.comboBoxScreenType = new System.Windows.Forms.ComboBox();
+            this.errorProviderName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // labelScreenType
@@ -204,6 +209,14 @@
             this.comboBoxScreenType.Size = new System.Drawing.Size(335, 32);
             this.comboBoxScreenType.TabIndex = 68;
             // 
+            // errorProviderName
+            // 
+            this.errorProviderName.ContainerControl = this;
+            // 
+            // errorProviderPrice
+            // 
+            this.errorProviderPrice.ContainerControl = this;
+            // 
             // AddElectronicBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +242,8 @@
             this.Name = "AddElectronicBook";
             this.Text = "AddElectronicBook";
             this.Load += new System.EventHandler(this.AddElectronicBook_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,5 +268,7 @@
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.Button buttonAddElectronicBook;
         private System.Windows.Forms.ComboBox comboBoxScreenType;
+        private System.Windows.Forms.ErrorProvider errorProviderName;
+        private System.Windows.Forms.ErrorProvider errorProviderPrice;
     }
 }
