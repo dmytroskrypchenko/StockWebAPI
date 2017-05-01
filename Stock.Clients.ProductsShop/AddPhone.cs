@@ -7,8 +7,8 @@
 
     public partial class AddPhone : Form
     {
-        private ProductServiceClient _productServiceClient;
-        private ManufacturerServiceClient _manufacturerServiceClient;
+        private readonly ProductServiceClient _productServiceClient;
+        private readonly ManufacturerServiceClient _manufacturerServiceClient;
 
         public AddPhone(ProductServiceClient productServiceClient, ManufacturerServiceClient manufacturerServiceClient)
         {

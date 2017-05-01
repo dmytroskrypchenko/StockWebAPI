@@ -33,7 +33,7 @@
 
         private void addSmartWatchToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
-            var addSmartWatchForm = new AddSmartWatch();
+            var addSmartWatchForm = new AddSmartWatch(_productServiceClient, _manufacturerServiceClient, _connectionTypeServiceClient);
             addSmartWatchForm.ShowDialog();
         }
 

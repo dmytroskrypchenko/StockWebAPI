@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonSmartWatch = new System.Windows.Forms.Button();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
@@ -45,6 +46,10 @@
             this.comboBoxConnectionType = new System.Windows.Forms.ComboBox();
             this.checkBoxPulsometer = new System.Windows.Forms.CheckBox();
             this.checkBoxSimCard = new System.Windows.Forms.CheckBox();
+            this.errorProviderName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSmartWatch
@@ -208,11 +213,19 @@
             this.checkBoxSimCard.TabIndex = 87;
             this.checkBoxSimCard.UseVisualStyleBackColor = true;
             // 
+            // errorProviderName
+            // 
+            this.errorProviderName.ContainerControl = this;
+            // 
+            // errorProviderPrice
+            // 
+            this.errorProviderPrice.ContainerControl = this;
+            // 
             // AddSmartWatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 346);
+            this.ClientSize = new System.Drawing.Size(531, 346);
             this.Controls.Add(this.checkBoxSimCard);
             this.Controls.Add(this.checkBoxPulsometer);
             this.Controls.Add(this.comboBoxConnectionType);
@@ -230,9 +243,12 @@
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelName);
+            this.MaximizeBox = false;
             this.Name = "AddSmartWatch";
-            this.Text = "AddPhone";
+            this.Text = "AddSmartWatch";
             this.Load += new System.EventHandler(this.AddSmartWatch_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +273,7 @@
         private System.Windows.Forms.ComboBox comboBoxConnectionType;
         private System.Windows.Forms.CheckBox checkBoxPulsometer;
         private System.Windows.Forms.CheckBox checkBoxSimCard;
+        private System.Windows.Forms.ErrorProvider errorProviderName;
+        private System.Windows.Forms.ErrorProvider errorProviderPrice;
     }
 }

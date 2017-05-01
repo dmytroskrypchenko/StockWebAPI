@@ -93,6 +93,7 @@
             this.ClientSize = new System.Drawing.Size(630, 300);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "ProductsShop";
             this.Load += new System.EventHandler(this.MainForm_Load);

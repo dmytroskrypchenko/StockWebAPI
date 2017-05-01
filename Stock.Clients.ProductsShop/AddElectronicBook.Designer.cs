@@ -239,6 +239,7 @@
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelName);
+            this.MaximizeBox = false;
             this.Name = "AddElectronicBook";
             this.Text = "AddElectronicBook";
             this.Load += new System.EventHandler(this.AddElectronicBook_Load);

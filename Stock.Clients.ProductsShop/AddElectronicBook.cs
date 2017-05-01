@@ -1,7 +1,6 @@
 ﻿namespace Stock.Clients.ProductsShop
 {
     using System;
-    using System.Collections.Generic;
     using System.Windows.Forms;
     using ProductService;
     using ManufacturerService;
@@ -9,9 +8,9 @@
 
     public partial class AddElectronicBook : Form
     {
-        private ProductServiceClient _productServiceClient;
-        private ManufacturerServiceClient _manufacturerServiceClient;
-        private ScreenTypeServiceClient _screenTypeServiceClient;
+        private readonly ProductServiceClient _productServiceClient;
+        private readonly ManufacturerServiceClient _manufacturerServiceClient;
+        private readonly ScreenTypeServiceClient _screenTypeServiceClient;
 
         public AddElectronicBook(ProductServiceClient productServiceClient, ManufacturerServiceClient manufacturerServiceClient, ScreenTypeServiceClient screenTypeServiceClient)
         {

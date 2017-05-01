@@ -282,6 +282,7 @@
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelName);
+            this.MinimizeBox = false;
             this.Name = "AddPhone";
             this.Text = "AddPhone";
             this.Load += new System.EventHandler(this.AddPhone_Load);
