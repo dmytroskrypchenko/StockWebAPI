@@ -60,7 +60,7 @@
                 FileByteStream = array
             };
 
-
+            _productServiceClient.ImportProducts(fileDto);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

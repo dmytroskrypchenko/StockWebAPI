@@ -1,23 +1,23 @@
 ﻿namespace Stock.BL.ColumnParsers
 {
+    using System;
     using Models;
     using System.Linq;
-    using System.Collections.Generic;
-    using DtoEntities;
+    using Repositories.Abstract;
 
     public class ScreenTypeParser<TColumnName> : BaseParser<int, TColumnName> where TColumnName : struct
     {
-        private readonly IEnumerable<ScreenTypeDto> _screenTypes;
-        public ScreenTypeParser(TColumnName column, IEnumerable<ScreenTypeDto> screenTypes) : base(column)
+        private readonly IDataRepository _repository;
+        public ScreenTypeParser(TColumnName column, IDataRepository repository) : base(column)
         {
-            _screenTypes = screenTypes;
+            _repository = repository;
         }
 
         protected override int Parse(ExcelData<TColumnName> excelData, int i)
         {
             string data = excelData.GetColumnValues(column)[i];
 
-            var screenType = _screenTypes.FirstOrDefault(x => x.Name == data);
+            var screenType = _repository.ScreenTypes.FirstOrDefault(x => string.Equals(x.Name, data, StringComparison.OrdinalIgnoreCase));
 
             return screenType?.Id ?? 0;
         }

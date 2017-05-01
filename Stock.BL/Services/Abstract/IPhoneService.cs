@@ -2,9 +2,10 @@
 {
     using DtoEntities;
     using DAL;
+    using Repositories.Abstract;
 
     public interface IPhoneService : IBaseService<Phone, PhoneDto>
     {
-        void Import(FileDto file);
+        void Import(IDataRepository repository, FileDto file);
     }
 }

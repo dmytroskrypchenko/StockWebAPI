@@ -5,6 +5,7 @@
     using DAL;
     using Mapper.Concrete;
     using ImportPipes.Concrete;
+    using Repositories.Abstract;
 
     public class PhoneService : BaseService<Phone, PhoneDto>, IPhoneService
     {
@@ -13,10 +14,10 @@
             new PhoneMapper().Configure();
         }
 
-        public void Import(FileDto file)
+        public void Import(IDataRepository repository, FileDto file)
         {
             var excelData = new PhoneExcelDataCreator(file).Process();
-            var phoneDtos = new PhoneDataParser(excelData).Process();
+            var phoneDtos = new PhoneDataParser(excelData, repository).Process();
 
             Insert(phoneDtos);
         }

@@ -1,23 +1,23 @@
 ﻿namespace Stock.BL.ColumnParsers
 {
+    using System;
     using Models;
     using System.Linq;
-    using System.Collections.Generic;
-    using DtoEntities;
+    using Repositories.Abstract;
 
     public class ConnectionTypeParser<TColumnName> : BaseParser<int, TColumnName> where TColumnName : struct
     {
-        private readonly IEnumerable<InterfaceForConnectingDto> _connectionTypes;
-        public ConnectionTypeParser(TColumnName column, IEnumerable<InterfaceForConnectingDto> connectionTypes) : base(column)
+        private readonly IDataRepository _repository;
+        public ConnectionTypeParser(TColumnName column, IDataRepository repository) : base(column)
         {
-            _connectionTypes = connectionTypes;
+            _repository = repository;
         }
 
         protected override int Parse(ExcelData<TColumnName> excelData, int i)
         {
             string data = excelData.GetColumnValues(column)[i];
 
-            var connectionType = _connectionTypes.FirstOrDefault(x => x.Name == data);
+            var connectionType = _repository.ConectionTypes.FirstOrDefault(x => string.Equals(x.Name, data, StringComparison.OrdinalIgnoreCase));
 
             return connectionType?.Id ?? 0;
         }

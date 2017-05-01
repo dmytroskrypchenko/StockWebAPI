@@ -7,10 +7,10 @@
     using Enums;
     using Abstract;
     using Models;
+    using Repositories.Abstract;
 
     public class PhoneDataParser : BasePipe<PhoneExcelData, List<PhoneDto>>
     {
-        private PhoneExcelData _fileData;
         private StringParser<PhoneColumnNames> _nameParser;
         private PriceParser<PhoneColumnNames> _priceParser;
         private StringParser<PhoneColumnNames> _descriptionParser;
@@ -23,13 +23,12 @@
         private DoubleParser<PhoneColumnNames> _cameraParser;
         private PhoneDto currentPhone;
 
-        public PhoneDataParser(PhoneExcelData fileData) : base(fileData)
+        public PhoneDataParser(PhoneExcelData fileData, IDataRepository repository) : base(fileData)
         {
             _nameParser = new StringParser<PhoneColumnNames>(PhoneColumnNames.Name);
             _priceParser = new PriceParser<PhoneColumnNames>(PhoneColumnNames.Price);
             _descriptionParser = new StringParser<PhoneColumnNames>(PhoneColumnNames.Description);
-            //_manufacturerParser =
-            //    new ManufacturerParser<PhoneColumnNames>(PhoneColumnNames.Manufacturer, );
+            _manufacturerParser = new ManufacturerParser<PhoneColumnNames>(PhoneColumnNames.Manufacturer, repository);
             _ramParser = new IntParser<PhoneColumnNames>(PhoneColumnNames.RAM);
             _romParser = new IntParser<PhoneColumnNames>(PhoneColumnNames.ROM);
             _cpuParser = new StringParser<PhoneColumnNames>(PhoneColumnNames.CPU);
@@ -42,12 +41,12 @@
         {
             var result = new List<PhoneDto>();
 
-            for (var i = 0; i < _fileData.Length; i++)
+            for (var i = 0; i < _inputData.Length; i++)
             {
                 currentPhone = new PhoneDto();
-                foreach (var column in _fileData.ExistingColumns)
+                foreach (var column in _inputData.ExistingColumns)
                 {
-                    Parse(_fileData, column, i);
+                    Parse(_inputData, column, i);
                 }
                 result.Add(currentPhone);
             }

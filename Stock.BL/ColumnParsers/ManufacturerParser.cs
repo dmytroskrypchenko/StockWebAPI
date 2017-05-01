@@ -1,23 +1,23 @@
 ﻿namespace Stock.BL.ColumnParsers
 {
+    using System;
     using Models;
     using System.Linq;
-    using System.Collections.Generic;
-    using DtoEntities;
+    using Repositories.Abstract;
 
     public class ManufacturerParser<TColumnName> : BaseParser<int, TColumnName> where TColumnName : struct
     {
-        private readonly IEnumerable<ManufacturerDto> _manufacturers;
-        public ManufacturerParser(TColumnName column, IEnumerable<ManufacturerDto> manufacturers) : base(column)
+        private readonly IDataRepository _repository;
+        public ManufacturerParser(TColumnName column, IDataRepository repository) : base(column)
         {
-            _manufacturers = manufacturers;
+            _repository = repository;
         }
 
         protected override int Parse(ExcelData<TColumnName> excelData, int i)
         {
             string data = excelData.GetColumnValues(column)[i];
 
-            var manufacturer = _manufacturers.FirstOrDefault(x => x.Name == data);
+            var manufacturer = _repository.Manufacturers.FirstOrDefault(x => string.Equals(x.Name, data, StringComparison.OrdinalIgnoreCase));
 
             return manufacturer?.Id ?? 0;
         }

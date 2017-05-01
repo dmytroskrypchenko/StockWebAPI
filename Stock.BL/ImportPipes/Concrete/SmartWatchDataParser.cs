@@ -7,10 +7,10 @@
     using Enums;
     using Abstract;
     using Models;
+    using Repositories.Abstract;
 
     public class SmartWatchDataParser : BasePipe<SmartWatchExcelData, List<SmartWatchDto>>
     {
-        private SmartWatchExcelData _fileData;
         private StringParser<SmartWatchColumnNames> _nameParser;
         private PriceParser<SmartWatchColumnNames> _priceParser;
         private StringParser<SmartWatchColumnNames> _descriptionParser;
@@ -21,14 +21,13 @@
         private BoolParser<SmartWatchColumnNames> _simCardParser;
         private SmartWatchDto currentSmartWatch;
 
-        public SmartWatchDataParser(SmartWatchExcelData fileData) : base(fileData)
+        public SmartWatchDataParser(SmartWatchExcelData fileData, IDataRepository repository) : base(fileData)
         {
             _nameParser = new StringParser<SmartWatchColumnNames>(SmartWatchColumnNames.Name);
             _priceParser = new PriceParser<SmartWatchColumnNames>(SmartWatchColumnNames.Price);
             _descriptionParser = new StringParser<SmartWatchColumnNames>(SmartWatchColumnNames.Description);
-            //_manufacturerParser =
-            //    new ManufacturerParser<SmartWatchColumnNames>(SmartWatchColumnNames.Manufacturer, );
-            //_connectionTypeParser = new ConnectionTypeParser<SmartWatchColumnNames>(SmartWatchColumnNames.InterfaceForConnecting,);
+            _manufacturerParser = new ManufacturerParser<SmartWatchColumnNames>(SmartWatchColumnNames.Manufacturer, repository);
+            _connectionTypeParser = new ConnectionTypeParser<SmartWatchColumnNames>(SmartWatchColumnNames.InterfaceForConnecting, repository);
             _screenDiagonalParser = new DoubleParser<SmartWatchColumnNames>(SmartWatchColumnNames.ScreenDiagonal);
             _pulsometerParser = new BoolParser<SmartWatchColumnNames>(SmartWatchColumnNames.Pulsometer);
             _simCardParser = new BoolParser<SmartWatchColumnNames>(SmartWatchColumnNames.SimCard);
@@ -38,12 +37,12 @@
         {
             var result = new List<SmartWatchDto>();
 
-            for (var i = 0; i < _fileData.Length; i++)
+            for (var i = 0; i < _inputData.Length; i++)
             {
                 currentSmartWatch = new SmartWatchDto();
-                foreach (var column in _fileData.ExistingColumns)
+                foreach (var column in _inputData.ExistingColumns)
                 {
-                    Parse(_fileData, column, i);
+                    Parse(_inputData, column, i);
                 }
                 result.Add(currentSmartWatch);
             }
@@ -70,7 +69,7 @@
                     };
                     break;
                 case SmartWatchColumnNames.InterfaceForConnecting:
-                    currentSmartWatch.InterfaceForConnecting =new InterfaceForConnectingDto {Id= _connectionTypeParser.TryParse(excelData, i)};
+                    currentSmartWatch.InterfaceForConnecting = new InterfaceForConnectingDto { Id = _connectionTypeParser.TryParse(excelData, i) };
                     break;
                 case SmartWatchColumnNames.ScreenDiagonal:
                     currentSmartWatch.ScreenDiagonal = _screenDiagonalParser.TryParse(excelData, i);

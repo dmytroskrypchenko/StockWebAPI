@@ -2,9 +2,10 @@
 {
     using DtoEntities;
     using DAL;
+    using Repositories.Abstract;
 
     public interface ISmartWatchService : IBaseService<SmartWatch, SmartWatchDto>
     {
-        void Import(FileDto file);
+        void Import(IDataRepository repository, FileDto file);
     }
 }

@@ -5,6 +5,7 @@
     using DAL;
     using Mapper.Concrete;
     using ImportPipes.Concrete;
+    using Repositories.Abstract;
 
     public class SmartWatchService : BaseService<SmartWatch, SmartWatchDto>, ISmartWatchService
     {
@@ -12,10 +13,10 @@
         {
             new SmartWatchMapper().Configure();
         }
-        public void Import(FileDto file)
+        public void Import(IDataRepository repository, FileDto file)
         {
             var excelData = new SmartWatchExcelDataCreator(file).Process();
-            var smartWatchDtos = new SmartWatchDataParser(excelData).Process();
+            var smartWatchDtos = new SmartWatchDataParser(excelData, repository).Process();
 
             Insert(smartWatchDtos);
         }

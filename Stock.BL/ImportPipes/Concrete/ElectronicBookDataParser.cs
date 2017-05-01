@@ -7,10 +7,10 @@
     using Enums;
     using Abstract;
     using Models;
+    using Repositories.Abstract;
 
     public class ElectronicBookDataParser : BasePipe<ElectronicBookExcelData, List<ElectronicBookDto>>
     {
-        private ElectronicBookExcelData _fileData;
         private StringParser<ElectronicBookColumnNames> _nameParser;
         private PriceParser<ElectronicBookColumnNames> _priceParser;
         private StringParser<ElectronicBookColumnNames> _descriptionParser;
@@ -21,15 +21,14 @@
         private StringParser<ElectronicBookColumnNames> _workingTimeParser;
         private ElectronicBookDto currentElectronicBook;
 
-        public ElectronicBookDataParser(ElectronicBookExcelData fileData) : base(fileData)
+        public ElectronicBookDataParser(ElectronicBookExcelData fileData, IDataRepository repository) : base(fileData)
         {
             _nameParser = new StringParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.Name);
             _priceParser = new PriceParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.Price);
             _descriptionParser = new StringParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.Description);
-            //_manufacturerParser =
-            //    new ManufacturerParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.Manufacturer, );
+            _manufacturerParser = new ManufacturerParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.Manufacturer, repository);
             _screenDiagonalParser = new DoubleParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.ScreenDiagonal);
-            //_screenTypeParser = new ScreenTypeParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.ScreenType, );
+            _screenTypeParser = new ScreenTypeParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.ScreenType, repository);
             _batteryCapacityParser = new IntParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.BatteryCapacity);
             _workingTimeParser = new StringParser<ElectronicBookColumnNames>(ElectronicBookColumnNames.WorkingTime);
         }
@@ -38,12 +37,12 @@
         {
             var result = new List<ElectronicBookDto>();
 
-            for (var i = 0; i < _fileData.Length; i++)
+            for (var i = 0; i < _inputData.Length; i++)
             {
                 currentElectronicBook = new ElectronicBookDto();
-                foreach (var column in _fileData.ExistingColumns)
+                foreach (var column in _inputData.ExistingColumns)
                 {
-                    Parse(_fileData, column, i);
+                    Parse(_inputData, column, i);
                 }
                 result.Add(currentElectronicBook);
             }

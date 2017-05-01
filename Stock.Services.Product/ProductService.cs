@@ -5,6 +5,7 @@
     using BL.DtoEntities;
     using BL.Services.Abstract;
     using BL.Services.Concrete;
+    using BL.Repositories.Concrete;
 
     public class ProductService : IProductService
     {
@@ -41,9 +42,10 @@
 
         public void ImportProducts(FileDto file)
         {
-            _phoneService.Value.Import(file);
-            _electronicBookService.Value.Import(file);
-            _smartWatchService.Value.Import(file);
+            var repository = new DataRepository();
+            _phoneService.Value.Import(repository, file);
+            _electronicBookService.Value.Import(repository, file);
+            _smartWatchService.Value.Import(repository, file);
         }
 
         public IEnumerable<ProductDto> GetAllProducts()

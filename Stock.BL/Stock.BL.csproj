@@ -88,6 +88,8 @@
     <Compile Include="Models\ColumnMapping.cs" />
     <Compile Include="Models\ExcelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Abstract\IDataRepository.cs" />
+    <Compile Include="Repositories\Concrete\DataRepository.cs" />
     <Compile Include="Services\Abstract\IBaseService.cs" />
     <Compile Include="Services\Abstract\IConnectionTypeService.cs" />
     <Compile Include="Services\Abstract\IScreenTypeService.cs" />
