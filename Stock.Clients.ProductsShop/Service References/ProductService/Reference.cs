@@ -38,7 +38,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PriceField;
+        private System.Nullable<decimal> PriceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -103,7 +103,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Price {
+        public System.Nullable<decimal> Price {
             get {
                 return this.PriceField;
             }
@@ -196,13 +196,13 @@ namespace Stock.Clients.ProductsShop.ProductService {
         private Stock.Clients.ProductsShop.ProductService.InterfaceForConnectingDto InterfaceForConnectingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool PulsometerField;
+        private System.Nullable<bool> PulsometerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ScreenDiagonalField;
+        private System.Nullable<double> ScreenDiagonalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool SimCardField;
+        private System.Nullable<bool> SimCardField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int SmartWatchIdField;
@@ -221,7 +221,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Pulsometer {
+        public System.Nullable<bool> Pulsometer {
             get {
                 return this.PulsometerField;
             }
@@ -234,7 +234,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double ScreenDiagonal {
+        public System.Nullable<double> ScreenDiagonal {
             get {
                 return this.ScreenDiagonalField;
             }
@@ -247,7 +247,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool SimCard {
+        public System.Nullable<bool> SimCard {
             get {
                 return this.SimCardField;
             }
@@ -280,13 +280,13 @@ namespace Stock.Clients.ProductsShop.ProductService {
     public partial class ElectronicBookDto : Stock.Clients.ProductsShop.ProductService.ProductDto {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int BatteryCapacityField;
+        private System.Nullable<int> BatteryCapacityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ElectronicBookIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ScreenDiagonalField;
+        private System.Nullable<double> ScreenDiagonalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Stock.Clients.ProductsShop.ProductService.ScreenTypeDto ScreenTypeField;
@@ -295,7 +295,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         private string WorkingTimeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int BatteryCapacity {
+        public System.Nullable<int> BatteryCapacity {
             get {
                 return this.BatteryCapacityField;
             }
@@ -321,7 +321,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double ScreenDiagonal {
+        public System.Nullable<double> ScreenDiagonal {
             get {
                 return this.ScreenDiagonalField;
             }
@@ -367,28 +367,28 @@ namespace Stock.Clients.ProductsShop.ProductService {
     public partial class PhoneDto : Stock.Clients.ProductsShop.ProductService.ProductDto {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int BatteryCapacityField;
+        private System.Nullable<int> BatteryCapacityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CPUField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double CameraField;
+        private System.Nullable<double> CameraField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PhoneIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RAMField;
+        private System.Nullable<int> RAMField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ROMField;
+        private System.Nullable<int> ROMField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ScreenDiagonalField;
+        private System.Nullable<double> ScreenDiagonalField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int BatteryCapacity {
+        public System.Nullable<int> BatteryCapacity {
             get {
                 return this.BatteryCapacityField;
             }
@@ -414,7 +414,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Camera {
+        public System.Nullable<double> Camera {
             get {
                 return this.CameraField;
             }
@@ -440,7 +440,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RAM {
+        public System.Nullable<int> RAM {
             get {
                 return this.RAMField;
             }
@@ -453,7 +453,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ROM {
+        public System.Nullable<int> ROM {
             get {
                 return this.ROMField;
             }
@@ -466,7 +466,7 @@ namespace Stock.Clients.ProductsShop.ProductService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double ScreenDiagonal {
+        public System.Nullable<double> ScreenDiagonal {
             get {
                 return this.ScreenDiagonalField;
             }

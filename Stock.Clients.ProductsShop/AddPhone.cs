@@ -1,20 +1,24 @@
 ﻿namespace Stock.Clients.ProductsShop
 {
     using System;
-    using System.Collections.Generic;
     using System.Windows.Forms;
     using ProductService;
+    using ManufacturerService;
 
     public partial class AddPhone : Form
     {
-        public AddPhone()
+        private ProductServiceClient _productServiceClient;
+        private ManufacturerServiceClient _manufacturerServiceClient;
+        public AddPhone(ProductServiceClient productServiceClient, ManufacturerServiceClient manufacturerServiceClient)
         {
             InitializeComponent();
+            _productServiceClient = productServiceClient;
+            _manufacturerServiceClient = manufacturerServiceClient;
         }
+
         private void AddPhone_Load(object sender, EventArgs e)
         {
-            //TODO: get using service
-            List<ManufacturerDto> manufacturers = new List<ManufacturerDto>();
+            var manufacturers = _manufacturerServiceClient.GetAll();
 
             comboBoxManufacturer.DataSource = new BindingSource(manufacturers, null);
             comboBoxManufacturer.DisplayMember = "Name";
@@ -23,26 +27,34 @@
 
         private void buttonAddPhone_Click(object sender, EventArgs e)
         {
-            if (textBoxName.Text == "" || textBoxPrice.Text == "")
+            if (textBoxName.Text == string.Empty || textBoxPrice.Text == string.Empty)
             {
-                MessageBox.Show("Please, fill the required fields");
+                errorProviderName.SetError(textBoxName, "Please enter a value to Name field");
+                errorProviderPrice.SetError(textBoxPrice, "Please enter a value to Price field");
             }
             else
             {
+                errorProviderName.Clear();
+                errorProviderPrice.Clear();
+
                 PhoneDto phone = new PhoneDto();
                 phone.Name = textBoxName.Text;
-                phone.Price = decimal.Parse(textBoxPrice.Text);
+                phone.Price = Parsers.DecimalParse(textBoxPrice.Text);
                 phone.Description = textBoxDescription.Text;
-                phone.Manufacturer = (ManufacturerDto)comboBoxManufacturer.SelectedItem;
-                phone.RAM = int.Parse(textBoxRAM.Text);
-                phone.ROM = int.Parse(textBoxROM.Text);
+                phone.Manufacturer = new ProductService.ManufacturerDto
+                {
+                    Id = ((ManufacturerService.ManufacturerDto)comboBoxManufacturer.SelectedItem).Id
+                };
+                phone.RAM = Parsers.IntParse(textBoxRAM.Text);
+                phone.ROM = Parsers.IntParse(textBoxROM.Text);
                 phone.CPU = textBoxCPU.Text;
-                phone.BatteryCapacity = int.Parse(textBoxBatteryCapacity.Text);
-                phone.ScreenDiagonal = double.Parse(textBoxScreenDiagonal.Text);
-                phone.Camera = double.Parse(textBoxCamera.Text);
+                phone.BatteryCapacity = Parsers.IntParse(textBoxBatteryCapacity.Text);
+                phone.ScreenDiagonal = Parsers.DoubleParse(textBoxScreenDiagonal.Text);
+                phone.Camera = Parsers.DoubleParse(textBoxCamera.Text);
 
+                _productServiceClient.AddPhone(phone);
                 MessageBox.Show("Book successfully added");
-                this.Close();
+                Close();
             }
         }
     }

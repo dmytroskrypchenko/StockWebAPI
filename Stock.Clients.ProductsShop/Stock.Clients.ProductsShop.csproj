@@ -66,6 +66,7 @@
     <Compile Include="AddPhone.Designer.cs">
       <DependentUpon>AddPhone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parsers.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

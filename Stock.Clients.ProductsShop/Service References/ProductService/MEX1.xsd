@@ -4,13 +4,13 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ProductDto">
         <xs:sequence>
-          <xs:element minOccurs="0" name="BatteryCapacity" type="xs:int" />
+          <xs:element minOccurs="0" name="BatteryCapacity" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="CPU" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Camera" type="xs:double" />
+          <xs:element minOccurs="0" name="Camera" nillable="true" type="xs:double" />
           <xs:element minOccurs="0" name="PhoneId" type="xs:int" />
-          <xs:element minOccurs="0" name="RAM" type="xs:int" />
-          <xs:element minOccurs="0" name="ROM" type="xs:int" />
-          <xs:element minOccurs="0" name="ScreenDiagonal" type="xs:double" />
+          <xs:element minOccurs="0" name="RAM" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ROM" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ScreenDiagonal" nillable="true" type="xs:double" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -22,7 +22,7 @@
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="tns:ManufacturerDto" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProductDto" nillable="true" type="tns:ProductDto" />
@@ -38,9 +38,9 @@
       <xs:extension base="tns:ProductDto">
         <xs:sequence>
           <xs:element minOccurs="0" name="InterfaceForConnecting" nillable="true" type="tns:InterfaceForConnectingDto" />
-          <xs:element minOccurs="0" name="Pulsometer" type="xs:boolean" />
-          <xs:element minOccurs="0" name="ScreenDiagonal" type="xs:double" />
-          <xs:element minOccurs="0" name="SimCard" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Pulsometer" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ScreenDiagonal" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SimCard" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="SmartWatchId" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -58,9 +58,9 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ProductDto">
         <xs:sequence>
-          <xs:element minOccurs="0" name="BatteryCapacity" type="xs:int" />
+          <xs:element minOccurs="0" name="BatteryCapacity" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="ElectronicBookId" type="xs:int" />
-          <xs:element minOccurs="0" name="ScreenDiagonal" type="xs:double" />
+          <xs:element minOccurs="0" name="ScreenDiagonal" nillable="true" type="xs:double" />
           <xs:element minOccurs="0" name="ScreenType" nillable="true" type="tns:ScreenTypeDto" />
           <xs:element minOccurs="0" name="WorkingTime" nillable="true" type="xs:string" />
         </xs:sequence>

@@ -5,17 +5,29 @@
     using System;
     using System.Collections.Generic;
     using ProductService;
+    using ManufacturerService;
+    using ScreenTypeService;
+    using ConnectionTypeService;
 
     public partial class MainForm : Form
     {
+        private ProductServiceClient _productServiceClient;
+        private ManufacturerServiceClient _manufacturerServiceClient;
+        private ScreenTypeServiceClient _screenTypeServiceClient;
+        private ConnectionTypeServiceClient _connectionTypeServiceClient;
+
         public MainForm()
         {
             InitializeComponent();
+            _productServiceClient = new ProductServiceClient();
+            _manufacturerServiceClient = new ManufacturerServiceClient();
+            _screenTypeServiceClient = new ScreenTypeServiceClient();
+            _connectionTypeServiceClient = new ConnectionTypeServiceClient();
         }
 
         private void addPhoneToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
-            var addPhoneForm = new AddPhone();
+            var addPhoneForm = new AddPhone(_productServiceClient, _manufacturerServiceClient);
             addPhoneForm.ShowDialog();
         }
 
@@ -48,6 +60,11 @@
                 FileByteStream = array
             };
 
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

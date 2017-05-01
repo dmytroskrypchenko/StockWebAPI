@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelROM = new System.Windows.Forms.Label();
             this.labelRAM = new System.Windows.Forms.Label();
             this.labelManufacturer = new System.Windows.Forms.Label();
@@ -49,6 +50,10 @@
             this.textBoxScreenDiagonal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelScreenDiagonal = new System.Windows.Forms.Label();
+            this.errorProviderName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // labelROM
@@ -243,6 +248,14 @@
             this.labelScreenDiagonal.TabIndex = 46;
             this.labelScreenDiagonal.Text = "Screen Diagonal:";
             // 
+            // errorProviderName
+            // 
+            this.errorProviderName.ContainerControl = this;
+            // 
+            // errorProviderPrice
+            // 
+            this.errorProviderPrice.ContainerControl = this;
+            // 
             // AddPhone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,6 +285,8 @@
             this.Name = "AddPhone";
             this.Text = "AddPhone";
             this.Load += new System.EventHandler(this.AddPhone_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +315,7 @@
         private System.Windows.Forms.TextBox textBoxScreenDiagonal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelScreenDiagonal;
+        private System.Windows.Forms.ErrorProvider errorProviderName;
+        private System.Windows.Forms.ErrorProvider errorProviderPrice;
     }
 }
