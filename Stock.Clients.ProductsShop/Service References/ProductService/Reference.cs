@@ -723,6 +723,24 @@ namespace Stock.Clients.ProductsShop.ProductService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetAllProducts", ReplyAction="http://tempuri.org/IProductService/GetAllProductsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ProductDto>> GetAllProductsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetPhonesForManufacturer", ReplyAction="http://tempuri.org/IProductService/GetPhonesForManufacturerResponse")]
+        System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.PhoneDto> GetPhonesForManufacturer(int idManufacturer, string orderDirection, string orderBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetPhonesForManufacturer", ReplyAction="http://tempuri.org/IProductService/GetPhonesForManufacturerResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.PhoneDto>> GetPhonesForManufacturerAsync(int idManufacturer, string orderDirection, string orderBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetSmartWatchesForManufacturer", ReplyAction="http://tempuri.org/IProductService/GetSmartWatchesForManufacturerResponse")]
+        System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.SmartWatchDto> GetSmartWatchesForManufacturer(int idManufacturer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetSmartWatchesForManufacturer", ReplyAction="http://tempuri.org/IProductService/GetSmartWatchesForManufacturerResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.SmartWatchDto>> GetSmartWatchesForManufacturerAsync(int idManufacturer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetElectronicBooksForManufacturer", ReplyAction="http://tempuri.org/IProductService/GetElectronicBooksForManufacturerResponse")]
+        System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ElectronicBookDto> GetElectronicBooksForManufacturer(int idManufacturer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetElectronicBooksForManufacturer", ReplyAction="http://tempuri.org/IProductService/GetElectronicBooksForManufacturerResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ElectronicBookDto>> GetElectronicBooksForManufacturerAsync(int idManufacturer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -806,6 +824,30 @@ namespace Stock.Clients.ProductsShop.ProductService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ProductDto>> GetAllProductsAsync() {
             return base.Channel.GetAllProductsAsync();
+        }
+        
+        public System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.PhoneDto> GetPhonesForManufacturer(int idManufacturer, string orderDirection, string orderBy) {
+            return base.Channel.GetPhonesForManufacturer(idManufacturer, orderDirection, orderBy);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.PhoneDto>> GetPhonesForManufacturerAsync(int idManufacturer, string orderDirection, string orderBy) {
+            return base.Channel.GetPhonesForManufacturerAsync(idManufacturer, orderDirection, orderBy);
+        }
+        
+        public System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.SmartWatchDto> GetSmartWatchesForManufacturer(int idManufacturer) {
+            return base.Channel.GetSmartWatchesForManufacturer(idManufacturer);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.SmartWatchDto>> GetSmartWatchesForManufacturerAsync(int idManufacturer) {
+            return base.Channel.GetSmartWatchesForManufacturerAsync(idManufacturer);
+        }
+        
+        public System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ElectronicBookDto> GetElectronicBooksForManufacturer(int idManufacturer) {
+            return base.Channel.GetElectronicBooksForManufacturer(idManufacturer);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Stock.Clients.ProductsShop.ProductService.ElectronicBookDto>> GetElectronicBooksForManufacturerAsync(int idManufacturer) {
+            return base.Channel.GetElectronicBooksForManufacturerAsync(idManufacturer);
         }
     }
 }

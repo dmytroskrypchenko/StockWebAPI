@@ -87,4 +87,48 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetPhonesForManufacturer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idManufacturer" type="xs:int" />
+        <xs:element minOccurs="0" name="orderDirection" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderBy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhonesForManufacturerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities" minOccurs="0" name="GetPhonesForManufacturerResult" nillable="true" type="q7:ArrayOfPhoneDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSmartWatchesForManufacturer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idManufacturer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSmartWatchesForManufacturerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities" minOccurs="0" name="GetSmartWatchesForManufacturerResult" nillable="true" type="q8:ArrayOfSmartWatchDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElectronicBooksForManufacturer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idManufacturer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElectronicBooksForManufacturerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Stock.BL.DtoEntities" minOccurs="0" name="GetElectronicBooksForManufacturerResult" nillable="true" type="q9:ArrayOfElectronicBookDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

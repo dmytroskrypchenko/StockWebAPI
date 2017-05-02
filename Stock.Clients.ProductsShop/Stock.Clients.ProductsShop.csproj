@@ -170,7 +170,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ProductService\ProductService.wsdl" />
+    <None Include="Service References\ProductService\Stock.Clients.ProductsShop.ProductService.ElectronicBookDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductService\Stock.Clients.ProductsShop.ProductService.PhoneDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ProductService\Stock.Clients.ProductsShop.ProductService.ProductDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductService\Stock.Clients.ProductsShop.ProductService.SmartWatchDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ScreenTypeService\MEX.xsd">

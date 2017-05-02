@@ -27,5 +27,14 @@
 
         [OperationContract]
         IEnumerable<ProductDto> GetAllProducts();
+
+        [OperationContract]
+        IEnumerable<PhoneDto> GetPhonesForManufacturer(int idManufacturer, string orderDirection, string orderBy);
+
+        [OperationContract]
+        IEnumerable<SmartWatchDto> GetSmartWatchesForManufacturer(int idManufacturer);
+
+        [OperationContract]
+        IEnumerable<ElectronicBookDto> GetElectronicBooksForManufacturer(int idManufacturer);
     }
 }

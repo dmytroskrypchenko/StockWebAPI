@@ -56,6 +56,21 @@
             _smartWatchService.Value.Import(repository, file);
         }
 
+        public IEnumerable<PhoneDto> GetPhonesForManufacturer(int idManufacturer, string orderDirection, string orderBy)
+        {
+            return _phoneService.Value.GetForManufacturer(idManufacturer, orderDirection, orderBy);
+        }
+
+        public IEnumerable<SmartWatchDto> GetSmartWatchesForManufacturer(int idManufacturer)
+        {
+            return _smartWatchService.Value.GetForManufacturer(idManufacturer);
+        }
+
+        public IEnumerable<ElectronicBookDto> GetElectronicBooksForManufacturer(int idManufacturer)
+        {
+            return _electronicBookService.Value.GetForManufacturer(idManufacturer);
+        }
+
         public IEnumerable<ProductDto> GetAllProducts()
         {
             var phones = _phoneService.Value.GetAll();

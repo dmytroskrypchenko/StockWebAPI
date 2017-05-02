@@ -89,4 +89,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FileDto" nillable="true" type="tns:FileDto" />
+  <xs:complexType name="ArrayOfPhoneDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhoneDto" nillable="true" type="tns:PhoneDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhoneDto" nillable="true" type="tns:ArrayOfPhoneDto" />
+  <xs:complexType name="ArrayOfSmartWatchDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SmartWatchDto" nillable="true" type="tns:SmartWatchDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSmartWatchDto" nillable="true" type="tns:ArrayOfSmartWatchDto" />
+  <xs:complexType name="ArrayOfElectronicBookDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ElectronicBookDto" nillable="true" type="tns:ElectronicBookDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfElectronicBookDto" nillable="true" type="tns:ArrayOfElectronicBookDto" />
 </xs:schema>

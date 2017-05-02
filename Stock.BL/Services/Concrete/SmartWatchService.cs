@@ -6,6 +6,8 @@
     using Mapper.Concrete;
     using ImportPipes.Concrete;
     using Repositories.Abstract;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class SmartWatchService : BaseService<SmartWatch, SmartWatchDto>, ISmartWatchService
     {
@@ -19,6 +21,40 @@
             var smartWatchDtos = new SmartWatchDataParser(excelData, repository).Process();
 
             Insert(smartWatchDtos);
+        }
+
+        public IEnumerable<SmartWatchDto> GetForManufacturer(int idManufacturer)
+        {
+            using (var uow = _factory.Create())
+            {
+                var entitiesDto = new List<SmartWatchDto>();
+                var entities = uow.Repository<SmartWatch>().Get(x => x.Product.ManufacturerId == idManufacturer).ToList();
+
+                foreach (var item in entities)
+                {
+                    var entityDto = AutoMapper.Mapper.Map<SmartWatchDto>(item);
+                    entitiesDto.Add(entityDto);
+                }
+
+                return entitiesDto;
+            }
+        }
+
+        public IEnumerable<SmartWatchDto> GetForConnectionType(int idInterfaceForConnection)
+        {
+            using (var uow = _factory.Create())
+            {
+                var entitiesDto = new List<SmartWatchDto>();
+                var entities = uow.Repository<SmartWatch>().Get(x => x.InterfaceForConnectingId == idInterfaceForConnection).ToList();
+
+                foreach (var item in entities)
+                {
+                    var entityDto = AutoMapper.Mapper.Map<SmartWatchDto>(item);
+                    entitiesDto.Add(entityDto);
+                }
+
+                return entitiesDto;
+            }
         }
     }
 }
