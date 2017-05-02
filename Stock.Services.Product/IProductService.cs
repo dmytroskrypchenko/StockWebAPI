@@ -19,6 +19,7 @@
         [OperationContract(Name = "AddSmartWatch")]
         void AddProduct(SmartWatchDto smartWatch);
 
+        [OperationContract]
         void AddProducts(List<ProductDto> products);
 
         [OperationContract]

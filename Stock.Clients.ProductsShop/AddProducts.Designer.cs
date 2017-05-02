@@ -31,37 +31,37 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridViewPhones = new System.Windows.Forms.DataGridView();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Manufacturer = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.RAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ROM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BatteryCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScreenDiagonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Camera = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewElectronicBooks = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScreenType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewSmartWatches = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.InterfaceForConnecting = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pulsometer = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SimCard = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.buttonAddProducts = new System.Windows.Forms.Button();
+            this.textBoxSmartWatchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxSmartWatchPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxSmartWatchDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxSmartWatchManufacturer = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.comboBoxSmartWatchInterfaceForConnection = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.textBoxSmartWatchScreenDiagonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBoxSmartWatchPulsometer = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.checkBoxSmartWatchSimCard = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.textBoxElectronicBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxElectronicBookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxElectronicBookDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxElectronicBookManufacturer = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.textBoxElectronicBookScreenDiagonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxElectronicBookScreenType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.textBoxElectronicBookBatteryCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxElectronicBookWorkingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPhoneName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPhonePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPhoneDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxPhoneManufacturer = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.textBoxPhoneRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPhoneROM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPhoneCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPhoneBatteryCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPhoneScreenDiagonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPhoneCamera = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPhones)).BeginInit();
@@ -97,70 +97,20 @@
             // 
             this.dataGridViewPhones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPhones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Name,
-            this.Price,
-            this.Description,
-            this.Manufacturer,
-            this.RAM,
-            this.ROM,
-            this.CPU,
-            this.BatteryCapacity,
-            this.ScreenDiagonal,
-            this.Camera});
+            this.textBoxPhoneName,
+            this.textBoxPhonePrice,
+            this.textBoxPhoneDescription,
+            this.comboBoxPhoneManufacturer,
+            this.textBoxPhoneRAM,
+            this.textBoxPhoneROM,
+            this.textBoxPhoneCPU,
+            this.textBoxPhoneBatteryCapacity,
+            this.textBoxPhoneScreenDiagonal,
+            this.textBoxPhoneCamera});
             this.dataGridViewPhones.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewPhones.Name = "dataGridViewPhones";
             this.dataGridViewPhones.Size = new System.Drawing.Size(899, 340);
             this.dataGridViewPhones.TabIndex = 0;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            // 
-            // Manufacturer
-            // 
-            this.Manufacturer.HeaderText = "Manufacturer";
-            this.Manufacturer.Name = "Manufacturer";
-            // 
-            // RAM
-            // 
-            this.RAM.HeaderText = "RAM";
-            this.RAM.Name = "RAM";
-            // 
-            // ROM
-            // 
-            this.ROM.HeaderText = "ROM";
-            this.ROM.Name = "ROM";
-            // 
-            // CPU
-            // 
-            this.CPU.HeaderText = "CPU";
-            this.CPU.Name = "CPU";
-            // 
-            // BatteryCapacity
-            // 
-            this.BatteryCapacity.HeaderText = "BatteryCapacity";
-            this.BatteryCapacity.Name = "BatteryCapacity";
-            // 
-            // ScreenDiagonal
-            // 
-            this.ScreenDiagonal.HeaderText = "ScreenDiagonal";
-            this.ScreenDiagonal.Name = "ScreenDiagonal";
-            // 
-            // Camera
-            // 
-            this.Camera.HeaderText = "Camera";
-            this.Camera.Name = "Camera";
             // 
             // tabPage2
             // 
@@ -177,58 +127,18 @@
             // 
             this.dataGridViewElectronicBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewElectronicBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewComboBoxColumn1,
-            this.dataGridViewTextBoxColumn4,
-            this.ScreenType,
-            this.dataGridViewTextBoxColumn5,
-            this.WorkingTime});
+            this.textBoxElectronicBookName,
+            this.textBoxElectronicBookPrice,
+            this.textBoxElectronicBookDescription,
+            this.comboBoxElectronicBookManufacturer,
+            this.textBoxElectronicBookScreenDiagonal,
+            this.comboBoxElectronicBookScreenType,
+            this.textBoxElectronicBookBatteryCapacity,
+            this.textBoxElectronicBookWorkingTime});
             this.dataGridViewElectronicBooks.Location = new System.Drawing.Point(0, -2);
             this.dataGridViewElectronicBooks.Name = "dataGridViewElectronicBooks";
-            this.dataGridViewElectronicBooks.Size = new System.Drawing.Size(655, 340);
+            this.dataGridViewElectronicBooks.Size = new System.Drawing.Size(899, 340);
             this.dataGridViewElectronicBooks.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewComboBoxColumn1
-            // 
-            this.dataGridViewComboBoxColumn1.HeaderText = "Manufacturer";
-            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "ScreenDiagonal";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // ScreenType
-            // 
-            this.ScreenType.HeaderText = "ScreenType";
-            this.ScreenType.Name = "ScreenType";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "BatteryCapacity";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // WorkingTime
-            // 
-            this.WorkingTime.HeaderText = "WorkingTime";
-            this.WorkingTime.Name = "WorkingTime";
             // 
             // tabPage3
             // 
@@ -245,58 +155,18 @@
             // 
             this.dataGridViewSmartWatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSmartWatches.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewComboBoxColumn2,
-            this.InterfaceForConnecting,
-            this.dataGridViewTextBoxColumn9,
-            this.Pulsometer,
-            this.SimCard});
+            this.textBoxSmartWatchName,
+            this.textBoxSmartWatchPrice,
+            this.textBoxSmartWatchDescription,
+            this.comboBoxSmartWatchManufacturer,
+            this.comboBoxSmartWatchInterfaceForConnection,
+            this.textBoxSmartWatchScreenDiagonal,
+            this.checkBoxSmartWatchPulsometer,
+            this.checkBoxSmartWatchSimCard});
             this.dataGridViewSmartWatches.Location = new System.Drawing.Point(0, -2);
             this.dataGridViewSmartWatches.Name = "dataGridViewSmartWatches";
-            this.dataGridViewSmartWatches.Size = new System.Drawing.Size(655, 340);
+            this.dataGridViewSmartWatches.Size = new System.Drawing.Size(899, 340);
             this.dataGridViewSmartWatches.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewComboBoxColumn2
-            // 
-            this.dataGridViewComboBoxColumn2.HeaderText = "Manufacturer";
-            this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
-            // 
-            // InterfaceForConnecting
-            // 
-            this.InterfaceForConnecting.HeaderText = "InterfaceForConnecting";
-            this.InterfaceForConnecting.Name = "InterfaceForConnecting";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "ScreenDiagonal";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // Pulsometer
-            // 
-            this.Pulsometer.HeaderText = "Pulsometer";
-            this.Pulsometer.Name = "Pulsometer";
-            // 
-            // SimCard
-            // 
-            this.SimCard.HeaderText = "SimCard";
-            this.SimCard.Name = "SimCard";
             // 
             // buttonAddProducts
             // 
@@ -309,6 +179,141 @@
             this.buttonAddProducts.UseVisualStyleBackColor = true;
             this.buttonAddProducts.Click += new System.EventHandler(this.buttonAddProducts_Click);
             // 
+            // textBoxSmartWatchName
+            // 
+            this.textBoxSmartWatchName.HeaderText = "Name";
+            this.textBoxSmartWatchName.Name = "textBoxSmartWatchName";
+            // 
+            // textBoxSmartWatchPrice
+            // 
+            this.textBoxSmartWatchPrice.HeaderText = "Price";
+            this.textBoxSmartWatchPrice.Name = "textBoxSmartWatchPrice";
+            // 
+            // textBoxSmartWatchDescription
+            // 
+            this.textBoxSmartWatchDescription.HeaderText = "Description";
+            this.textBoxSmartWatchDescription.Name = "textBoxSmartWatchDescription";
+            // 
+            // comboBoxSmartWatchManufacturer
+            // 
+            this.comboBoxSmartWatchManufacturer.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.comboBoxSmartWatchManufacturer.HeaderText = "Manufacturer";
+            this.comboBoxSmartWatchManufacturer.Name = "comboBoxSmartWatchManufacturer";
+            // 
+            // comboBoxSmartWatchInterfaceForConnection
+            // 
+            this.comboBoxSmartWatchInterfaceForConnection.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.comboBoxSmartWatchInterfaceForConnection.HeaderText = "InterfaceForConnecting";
+            this.comboBoxSmartWatchInterfaceForConnection.Name = "comboBoxSmartWatchInterfaceForConnection";
+            // 
+            // textBoxSmartWatchScreenDiagonal
+            // 
+            this.textBoxSmartWatchScreenDiagonal.HeaderText = "ScreenDiagonal";
+            this.textBoxSmartWatchScreenDiagonal.Name = "textBoxSmartWatchScreenDiagonal";
+            // 
+            // checkBoxSmartWatchPulsometer
+            // 
+            this.checkBoxSmartWatchPulsometer.HeaderText = "Pulsometer";
+            this.checkBoxSmartWatchPulsometer.Name = "checkBoxSmartWatchPulsometer";
+            // 
+            // checkBoxSmartWatchSimCard
+            // 
+            this.checkBoxSmartWatchSimCard.HeaderText = "SimCard";
+            this.checkBoxSmartWatchSimCard.Name = "checkBoxSmartWatchSimCard";
+            // 
+            // textBoxElectronicBookName
+            // 
+            this.textBoxElectronicBookName.HeaderText = "Name";
+            this.textBoxElectronicBookName.Name = "textBoxElectronicBookName";
+            // 
+            // textBoxElectronicBookPrice
+            // 
+            this.textBoxElectronicBookPrice.HeaderText = "Price";
+            this.textBoxElectronicBookPrice.Name = "textBoxElectronicBookPrice";
+            // 
+            // textBoxElectronicBookDescription
+            // 
+            this.textBoxElectronicBookDescription.HeaderText = "Description";
+            this.textBoxElectronicBookDescription.Name = "textBoxElectronicBookDescription";
+            // 
+            // comboBoxElectronicBookManufacturer
+            // 
+            this.comboBoxElectronicBookManufacturer.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.comboBoxElectronicBookManufacturer.HeaderText = "Manufacturer";
+            this.comboBoxElectronicBookManufacturer.Name = "comboBoxElectronicBookManufacturer";
+            // 
+            // textBoxElectronicBookScreenDiagonal
+            // 
+            this.textBoxElectronicBookScreenDiagonal.HeaderText = "ScreenDiagonal";
+            this.textBoxElectronicBookScreenDiagonal.Name = "textBoxElectronicBookScreenDiagonal";
+            // 
+            // comboBoxElectronicBookScreenType
+            // 
+            this.comboBoxElectronicBookScreenType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.comboBoxElectronicBookScreenType.HeaderText = "ScreenType";
+            this.comboBoxElectronicBookScreenType.Name = "comboBoxElectronicBookScreenType";
+            // 
+            // textBoxElectronicBookBatteryCapacity
+            // 
+            this.textBoxElectronicBookBatteryCapacity.HeaderText = "BatteryCapacity";
+            this.textBoxElectronicBookBatteryCapacity.Name = "textBoxElectronicBookBatteryCapacity";
+            // 
+            // textBoxElectronicBookWorkingTime
+            // 
+            this.textBoxElectronicBookWorkingTime.HeaderText = "WorkingTime";
+            this.textBoxElectronicBookWorkingTime.Name = "textBoxElectronicBookWorkingTime";
+            // 
+            // textBoxPhoneName
+            // 
+            this.textBoxPhoneName.HeaderText = "Name";
+            this.textBoxPhoneName.Name = "textBoxPhoneName";
+            // 
+            // textBoxPhonePrice
+            // 
+            this.textBoxPhonePrice.HeaderText = "Price";
+            this.textBoxPhonePrice.Name = "textBoxPhonePrice";
+            // 
+            // textBoxPhoneDescription
+            // 
+            this.textBoxPhoneDescription.HeaderText = "Description";
+            this.textBoxPhoneDescription.Name = "textBoxPhoneDescription";
+            // 
+            // comboBoxPhoneManufacturer
+            // 
+            this.comboBoxPhoneManufacturer.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.comboBoxPhoneManufacturer.HeaderText = "Manufacturer";
+            this.comboBoxPhoneManufacturer.Name = "comboBoxPhoneManufacturer";
+            // 
+            // textBoxPhoneRAM
+            // 
+            this.textBoxPhoneRAM.HeaderText = "RAM";
+            this.textBoxPhoneRAM.Name = "textBoxPhoneRAM";
+            // 
+            // textBoxPhoneROM
+            // 
+            this.textBoxPhoneROM.HeaderText = "ROM";
+            this.textBoxPhoneROM.Name = "textBoxPhoneROM";
+            // 
+            // textBoxPhoneCPU
+            // 
+            this.textBoxPhoneCPU.HeaderText = "CPU";
+            this.textBoxPhoneCPU.Name = "textBoxPhoneCPU";
+            // 
+            // textBoxPhoneBatteryCapacity
+            // 
+            this.textBoxPhoneBatteryCapacity.HeaderText = "BatteryCapacity";
+            this.textBoxPhoneBatteryCapacity.Name = "textBoxPhoneBatteryCapacity";
+            // 
+            // textBoxPhoneScreenDiagonal
+            // 
+            this.textBoxPhoneScreenDiagonal.HeaderText = "ScreenDiagonal";
+            this.textBoxPhoneScreenDiagonal.Name = "textBoxPhoneScreenDiagonal";
+            // 
+            // textBoxPhoneCamera
+            // 
+            this.textBoxPhoneCamera.HeaderText = "Camera";
+            this.textBoxPhoneCamera.Name = "textBoxPhoneCamera";
+            // 
             // AddProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,6 +322,7 @@
             this.Controls.Add(this.buttonAddProducts);
             this.Controls.Add(this.tabControl);
             this.MaximizeBox = false;
+            this.Name = "AddProducts";
             this.Text = "AddProducts";
             this.Load += new System.EventHandler(this.AddProducts_Load);
             this.tabControl.ResumeLayout(false);
@@ -335,36 +341,36 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridViewPhones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Manufacturer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RAM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ROM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BatteryCapacity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ScreenDiagonal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Camera;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridViewElectronicBooks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ScreenType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WorkingTime;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridViewSmartWatches;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn InterfaceForConnecting;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Pulsometer;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn SimCard;
         private System.Windows.Forms.Button buttonAddProducts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhoneName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhonePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhoneDescription;
+        private System.Windows.Forms.DataGridViewComboBoxColumn comboBoxPhoneManufacturer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhoneRAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhoneROM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhoneCPU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhoneBatteryCapacity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhoneScreenDiagonal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxPhoneCamera;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxElectronicBookName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxElectronicBookPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxElectronicBookDescription;
+        private System.Windows.Forms.DataGridViewComboBoxColumn comboBoxElectronicBookManufacturer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxElectronicBookScreenDiagonal;
+        private System.Windows.Forms.DataGridViewComboBoxColumn comboBoxElectronicBookScreenType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxElectronicBookBatteryCapacity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxElectronicBookWorkingTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxSmartWatchName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxSmartWatchPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxSmartWatchDescription;
+        private System.Windows.Forms.DataGridViewComboBoxColumn comboBoxSmartWatchManufacturer;
+        private System.Windows.Forms.DataGridViewComboBoxColumn comboBoxSmartWatchInterfaceForConnection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textBoxSmartWatchScreenDiagonal;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkBoxSmartWatchPulsometer;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkBoxSmartWatchSimCard;
     }
 }
