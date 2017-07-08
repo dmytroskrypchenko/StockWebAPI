@@ -7,9 +7,9 @@
     {
         private readonly BL.Services.Abstract.IConnectionTypeService _connectionTypeService;
 
-        public ConnectionTypeService()
+        public ConnectionTypeService(BL.Services.Abstract.IConnectionTypeService connectionTypeService)
         {
-            _connectionTypeService = new BL.Services.Concrete.ConnectionTypeService();
+            _connectionTypeService = connectionTypeService;
         }
 
         public IEnumerable<InterfaceForConnectingDto> GetAll()

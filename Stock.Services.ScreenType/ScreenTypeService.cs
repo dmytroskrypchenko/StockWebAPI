@@ -7,9 +7,9 @@
     {
         private readonly BL.Services.Abstract.IScreenTypeService _screenTypeService;
 
-        public ScreenTypeService()
+        public ScreenTypeService(BL.Services.Abstract.IScreenTypeService screenTypeService)
         {
-            _screenTypeService = new BL.Services.Concrete.ScreenTypeService();
+            _screenTypeService = screenTypeService;
         }
 
         public IEnumerable<ScreenTypeDto> GetAll()

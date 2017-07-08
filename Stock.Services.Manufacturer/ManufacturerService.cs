@@ -7,9 +7,9 @@
     {
         private readonly BL.Services.Abstract.IManufacturerService _manufacturerService;
 
-        public ManufacturerService()
+        public ManufacturerService(BL.Services.Abstract.IManufacturerService manufacturerService)
         {
-            _manufacturerService = new BL.Services.Concrete.ManufacturerService();
+            _manufacturerService = manufacturerService;
         }
 
         public IEnumerable<ManufacturerDto> GetAll()

@@ -5,7 +5,6 @@
     using System.Collections.Generic;
     using BL.DtoEntities;
     using BL.Services.Abstract;
-    using BL.Services.Concrete;
     using BL.Repositories.Concrete;
 
     public class ProductService : IProductService
@@ -14,11 +13,11 @@
         private readonly Lazy<ISmartWatchService> _smartWatchService;
         private readonly Lazy<IPhoneService> _phoneService;
 
-        public ProductService()
+        public ProductService(ISmartWatchService smartWatchService, IElectronicBookService electronicBookService, IPhoneService phoneService)
         {
-            _smartWatchService = new Lazy<ISmartWatchService>(() => new SmartWatchService());
-            _electronicBookService = new Lazy<IElectronicBookService>(() => new ElectronicBookService());
-            _phoneService = new Lazy<IPhoneService>(() => new PhoneService());
+            _smartWatchService = new Lazy<ISmartWatchService>(() => smartWatchService);
+            _electronicBookService = new Lazy<IElectronicBookService>(() => electronicBookService);
+            _phoneService = new Lazy<IPhoneService>(() => phoneService);
         }
 
         public string GetData(int value)
