@@ -2,40 +2,31 @@
 {
     using System;
     using System.ServiceModel;
+    using System.Linq;
+    using System.Reflection;
     using Autofac.Integration.Wcf;
-    using Services.ConnectionType;
-    using Services.Manufacturer;
-    using Services.Product;
-    using Services.ScreenType;
+
     class Program
     {
-        private static ServiceHost manufacturerServiceHost;
-        private static ServiceHost screenTypeServiceHost;
-        private static ServiceHost connectionTypeServiceHost;
-        private static ServiceHost productServiceHost;
-
         static void Main()
         {
             var container = Bootstrapper.BuildContainer();
-            
+
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                    .SelectMany(assembly => assembly.GetTypes())
+                     .Where(type =>
+                             type.IsClass && type.GetInterfaces().Any(y => y.IsDefined(typeof(ServiceContractAttribute))) &&
+                             type.Namespace != null && type.Namespace.StartsWith("Stock.Services")).ToList();
+
             Console.WriteLine("ServiceHost");
             try
             {
-                manufacturerServiceHost = new ServiceHost(typeof(ManufacturerService));
-                manufacturerServiceHost.AddDependencyInjectionBehavior<ManufacturerService>(container);
-                manufacturerServiceHost.Open();
-
-                screenTypeServiceHost = new ServiceHost(typeof(ScreenTypeService));
-                screenTypeServiceHost.AddDependencyInjectionBehavior<ScreenTypeService>(container);
-                screenTypeServiceHost.Open();
-
-                connectionTypeServiceHost = new ServiceHost(typeof(ConnectionTypeService));
-                connectionTypeServiceHost.AddDependencyInjectionBehavior<ConnectionTypeService>(container);
-                connectionTypeServiceHost.Open();
-
-                productServiceHost = new ServiceHost(typeof(ProductService));
-                productServiceHost.AddDependencyInjectionBehavior<ProductService>(container);
-                productServiceHost.Open();
+                foreach (var type in types)
+                {
+                    var serviceHost = new ServiceHost(type);
+                    serviceHost.AddDependencyInjectionBehavior(type, container);
+                    serviceHost.Open();
+                }
             }
             catch (Exception e)
             {
