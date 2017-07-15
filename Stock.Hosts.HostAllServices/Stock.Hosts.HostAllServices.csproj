@@ -64,10 +64,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Stock.BL\Stock.BL.csproj">
-      <Project>{136e63d9-f75c-4af8-b0c0-4930822e7192}</Project>
-      <Name>Stock.BL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Stock.Services.ConnectionType\Stock.Services.ConnectionType.csproj">
       <Project>{3b4b4424-64c1-4770-a229-5eb08ee03fce}</Project>
       <Name>Stock.Services.ConnectionType</Name>
