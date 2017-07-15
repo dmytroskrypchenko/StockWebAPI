@@ -7,9 +7,6 @@
     [ServiceContract]
     public interface IProductService
     {
-        [OperationContract]
-        string GetData(int value);
-
         [OperationContract(Name = "AddPhone")]
         void AddProduct(PhoneDto phone);
 

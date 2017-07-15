@@ -19,12 +19,7 @@
             _electronicBookService = new Lazy<IElectronicBookService>(() => electronicBookService);
             _phoneService = new Lazy<IPhoneService>(() => phoneService);
         }
-
-        public string GetData(int value)
-        {
-            return $"You entered: {value}";
-        }
-
+        
         public void AddProduct(PhoneDto phone)
         {
             _phoneService.Value.Insert(phone);
