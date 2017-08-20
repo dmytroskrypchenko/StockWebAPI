@@ -3,7 +3,7 @@
     using DtoEntities;
     using Abstract;
     using DAL;
-    public class SmartWatchMapper : IMapper
+    public class SmartWatchMapper : IMapper<SmartWatch, SmartWatchDto>
     {
         public void Configure()
         {

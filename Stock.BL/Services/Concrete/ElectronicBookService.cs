@@ -3,17 +3,18 @@
     using DtoEntities;
     using Abstract;
     using DAL;
-    using Mapper.Concrete;
+    using Mapper.Abstract;
     using ImportPipes.Concrete;
     using Repositories.Abstract;
     using System.Collections.Generic;
     using System.Linq;
+    using DAL.Infrastructure.Abstract;
 
     public class ElectronicBookService : BaseService<ElectronicBook, ElectronicBookDto>, IElectronicBookService
     {
-        public ElectronicBookService()
+        public ElectronicBookService(IUnitOfWorkFactory factory, IMapper<ElectronicBook, ElectronicBookDto> mapper)
+            : base(factory, mapper)
         {
-            new ElectronicBookMapper().Configure();
         }
 
         public void Import(IDataRepository repository, FileDto file)

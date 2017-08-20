@@ -4,7 +4,7 @@
     using Abstract;
     using DAL;
 
-    public class ScreenTypeMapper : IMapper
+    public class ScreenTypeMapper : IMapper<ScreenType, ScreenTypeDto>
     {
         public void Configure()
         {

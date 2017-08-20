@@ -3,13 +3,14 @@
     using DtoEntities;
     using Abstract;
     using DAL;
-    using Mapper.Concrete;
+    using Mapper.Abstract;
+    using DAL.Infrastructure.Abstract;
 
     public class ScreenTypeService : BaseService<ScreenType, ScreenTypeDto>, IScreenTypeService
     {
-        public ScreenTypeService()
+        public ScreenTypeService(IUnitOfWorkFactory factory, IMapper<ScreenType, ScreenTypeDto> mapper)
+            : base(factory, mapper)
         {
-            new ScreenTypeMapper().Configure();
         }
     }
 }

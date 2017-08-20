@@ -3,18 +3,20 @@
     using DtoEntities;
     using Abstract;
     using DAL;
-    using Mapper.Concrete;
+    using Mapper.Abstract;
     using ImportPipes.Concrete;
     using Repositories.Abstract;
     using System.Collections.Generic;
     using System.Linq;
+    using DAL.Infrastructure.Abstract;
 
     public class SmartWatchService : BaseService<SmartWatch, SmartWatchDto>, ISmartWatchService
     {
-        public SmartWatchService()
+        public SmartWatchService(IUnitOfWorkFactory factory, IMapper<SmartWatch, SmartWatchDto> mapper)
+            : base(factory, mapper)
         {
-            new SmartWatchMapper().Configure();
         }
+
         public void Import(IDataRepository repository, FileDto file)
         {
             var excelData = new SmartWatchExcelDataCreator(file).Process();

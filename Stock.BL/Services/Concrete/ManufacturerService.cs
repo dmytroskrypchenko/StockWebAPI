@@ -3,13 +3,14 @@
     using DtoEntities;
     using Abstract;
     using DAL;
-    using Mapper.Concrete;
+    using Mapper.Abstract;
+    using DAL.Infrastructure.Abstract;
 
     public class ManufacturerService : BaseService<Manufacturer, ManufacturerDto>, IManufacturerService
     {
-        public ManufacturerService()
+        public ManufacturerService(IUnitOfWorkFactory factory, IMapper<Manufacturer, ManufacturerDto> mapper)
+            : base(factory, mapper)
         {
-            new ManufacturerMapper().Configure();
         }
     }
 }

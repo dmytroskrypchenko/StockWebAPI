@@ -4,7 +4,7 @@
     using Abstract;
     using DAL;
 
-    public class ConnectionTypeMapper : IMapper
+    public class ConnectionTypeMapper : IMapper<InterfaceForConnecting, InterfaceForConnectingDto>
     {
         public void Configure()
         {

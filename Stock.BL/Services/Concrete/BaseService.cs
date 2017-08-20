@@ -3,7 +3,8 @@
     using System.Collections.Generic;
     using Abstract;
     using DAL.Infrastructure.Abstract;
-    using DAL.Infrastructure.Concrete;
+    using Mapper.Abstract;
+
 
     public class BaseService<TEntity, TEntityDto> : IBaseService<TEntity, TEntityDto>
         where TEntityDto : class
@@ -11,9 +12,10 @@
     {
         protected readonly IUnitOfWorkFactory _factory;
 
-        public BaseService()
+        public BaseService(IUnitOfWorkFactory factory, IMapper<TEntity, TEntityDto> mapper)
         {
-            _factory = new UnitOfWorkFactory();
+            _factory = factory;
+            mapper.Configure();
         }
 
         public void Delete(TEntityDto entity)

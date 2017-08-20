@@ -4,7 +4,7 @@
     using Abstract;
     using DAL;
 
-    public class ManufacturerMapper : IMapper
+    public class ManufacturerMapper : IMapper<Manufacturer, ManufacturerDto>
     {
         public void Configure()
         {

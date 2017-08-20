@@ -4,7 +4,7 @@
     using Abstract;
     using DAL;
 
-    public class ElectronicBookMapper : IMapper
+    public class ElectronicBookMapper : IMapper<ElectronicBook, ElectronicBookDto>
     {
         public void Configure()
         {

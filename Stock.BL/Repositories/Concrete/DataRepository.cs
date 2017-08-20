@@ -5,16 +5,24 @@
     using System.Linq;
     using DtoEntities;
     using Abstract;
-    using Services.Concrete;
+    using Services.Abstract;
 
     public class DataRepository : IDataRepository
     {
+        private readonly IManufacturerService _manufacturerService;
+        private readonly IConnectionTypeService _connectionTypeService;
+        private readonly IScreenTypeService _screenTypeService;
+
         private readonly Lazy<List<ManufacturerDto>> _manufacturers;
         private readonly Lazy<List<InterfaceForConnectingDto>> _connectionTypes;
         private readonly Lazy<List<ScreenTypeDto>> _screenTypes;
 
-        public DataRepository()
+        public DataRepository(IManufacturerService manufacturerService, IConnectionTypeService connectionTypeService, IScreenTypeService screenTypeService)
         {
+            _manufacturerService = manufacturerService;
+            _connectionTypeService = connectionTypeService;
+            _screenTypeService = screenTypeService;
+
             _manufacturers = new Lazy<List<ManufacturerDto>>(GetManufacturers);
             _connectionTypes = new Lazy<List<InterfaceForConnectingDto>>(GetConnectionTypes);
             _screenTypes = new Lazy<List<ScreenTypeDto>>(GetScreenTypes);
@@ -26,20 +34,17 @@
 
         private List<ManufacturerDto> GetManufacturers()
         {
-            var manufacturerService = new ManufacturerService();
-            return manufacturerService.GetAll().ToList();
+            return _manufacturerService.GetAll().ToList();
         }
 
         private List<InterfaceForConnectingDto> GetConnectionTypes()
         {
-            var connectionTypeService = new ConnectionTypeService();
-            return connectionTypeService.GetAll().ToList();
+            return _connectionTypeService.GetAll().ToList();
         }
 
         private List<ScreenTypeDto> GetScreenTypes()
         {
-            var screenTypeService = new ScreenTypeService();
-            return screenTypeService.GetAll().ToList();
+            return _screenTypeService.GetAll().ToList();
         }
     }
 }

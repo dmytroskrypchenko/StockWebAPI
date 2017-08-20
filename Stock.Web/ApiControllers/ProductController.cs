@@ -1,4 +1,6 @@
-﻿namespace Stock.Web.ApiControllers
+﻿using Stock.BL.Repositories.Abstract;
+
+namespace Stock.Web.ApiControllers
 {
     using System;
     using System.Collections.Generic;
@@ -15,14 +17,18 @@
         private readonly Lazy<IPhoneService> _phoneService;
         private readonly Lazy<ISmartWatchService> _smartWatchService;
         private readonly Lazy<IElectronicBookService> _electronicBookService;
+        private readonly IDataRepository _dataRepository;
 
         public ProductController(IPhoneService phoneService, ISmartWatchService smartWatchService,
-            IElectronicBookService electronicBookService)
+            IElectronicBookService electronicBookService, IDataRepository dataRepository)
         {
+            _dataRepository = dataRepository;
+
             _phoneService = new Lazy<IPhoneService>(() => phoneService);
             _smartWatchService = new Lazy<ISmartWatchService>(() => smartWatchService);
             _electronicBookService = new Lazy<IElectronicBookService>(() => electronicBookService);
         }
+
         [HttpPut]
         public HttpResponseMessage AddProduct(PhoneDto phone)
         {
@@ -104,10 +110,9 @@
             {
                 if (file != null)
                 {
-                    var repository = new DataRepository();
-                    _phoneService.Value.Import(repository, file);
-                    _electronicBookService.Value.Import(repository, file);
-                    _smartWatchService.Value.Import(repository, file);
+                    _phoneService.Value.Import(_dataRepository, file);
+                    _electronicBookService.Value.Import(_dataRepository, file);
+                    _smartWatchService.Value.Import(_dataRepository, file);
                     return Request.CreateResponse(HttpStatusCode.OK, "Ok");
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, "File is not valid");
